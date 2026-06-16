@@ -349,6 +349,48 @@ h2,.h2{font-size:var(--fs-h2);font-weight:650;line-height:1.08;letter-spacing:-.
   background:var(--bg-soft);margin:16px 0 16px}
 .sc-embed iframe{display:block;width:100%;height:420px;border:0}
 
+/* ---------- music tiles ---------- */
+.music-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(12px,1.6vw,20px);margin:18px 0 18px}
+@media(min-width:640px){.music-grid{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:980px){.music-grid{grid-template-columns:repeat(4,1fr)}}
+.mtile{cursor:pointer;text-align:left;display:block;width:100%}
+.mtile__art{position:relative;display:block;aspect-ratio:1/1;border-radius:12px;overflow:hidden;
+  background:var(--bg-soft);border:1px solid var(--line)}
+.mtile__art img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.mtile:hover .mtile__art img{transform:scale(1.05)}
+.mtile__play{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
+  background:rgba(8,8,8,.26);opacity:0;transition:opacity .3s var(--ease)}
+.mtile:hover .mtile__play,.mtile:focus-visible .mtile__play,.mtile.is-playing .mtile__play{opacity:1}
+.mtile__play>span{width:50px;height:50px;border-radius:50%;background:rgba(255,255,255,.94);
+  color:#0a0a0a;display:flex;align-items:center;justify-content:center;padding-left:3px;
+  transform:scale(.8);transition:transform .3s var(--ease)}
+.mtile:hover .mtile__play>span,.mtile.is-playing .mtile__play>span{transform:scale(1)}
+.mtile__title{display:block;margin-top:11px;font-weight:550;font-size:.95rem;
+  letter-spacing:-.01em;line-height:1.28}
+.mtile.is-playing .mtile__title{text-decoration:underline;text-underline-offset:3px}
+.mtile__meta{display:block;color:var(--muted);font-size:.8rem;margin-top:3px;
+  font-variant-numeric:tabular-nums}
+
+/* ---------- sticky soundcloud player ---------- */
+.player{position:fixed;left:0;right:0;bottom:0;z-index:90;transform:translateY(125%);
+  transition:transform .45s var(--ease);background:rgba(255,255,255,.97);
+  backdrop-filter:saturate(160%) blur(12px);-webkit-backdrop-filter:saturate(160%) blur(12px);
+  border-top:1px solid var(--line);box-shadow:0 -10px 40px rgba(0,0,0,.08)}
+.player.show{transform:none}
+.player__inner{max-width:var(--container);margin:0 auto;padding:10px var(--gutter);
+  display:flex;align-items:center;gap:14px}
+.player__inner iframe{flex:1;display:block;height:120px;border:0;border-radius:10px;min-width:0}
+.player__close{flex:none;width:38px;height:38px;border-radius:50%;background:var(--fill);
+  display:flex;align-items:center;justify-content:center;color:var(--ink);
+  transition:background .2s var(--ease),transform .2s var(--ease)}
+.player__close:hover{background:var(--fill-2);transform:rotate(90deg)}
+body.player-open{padding-bottom:148px}
+@media(max-width:768px){
+  .player{backdrop-filter:none;-webkit-backdrop-filter:none;background:#fff}
+  .player__inner iframe{height:110px}
+  body.player-open{padding-bottom:138px}
+}
+
 /* ---------- about: live / on-stage gallery ---------- */
 .live{padding-top:clamp(40px,6vw,80px)}
 .live-hero{border-radius:14px;overflow:hidden;background:var(--bg-soft);
