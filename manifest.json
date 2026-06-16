@@ -1,0 +1,469 @@
+{
+  "projects": [
+    {
+      "slug": "saras-co",
+      "title": "Saras Co",
+      "pageCount": 7,
+      "pages": [
+        {
+          "src": "assets/projects/saras-co/01.jpg",
+          "w": 1366,
+          "h": 967
+        },
+        {
+          "src": "assets/projects/saras-co/02.jpg",
+          "w": 1366,
+          "h": 967
+        },
+        {
+          "src": "assets/projects/saras-co/03.jpg",
+          "w": 1366,
+          "h": 967
+        },
+        {
+          "src": "assets/projects/saras-co/04.jpg",
+          "w": 1366,
+          "h": 967
+        },
+        {
+          "src": "assets/projects/saras-co/05.jpg",
+          "w": 1366,
+          "h": 967
+        },
+        {
+          "src": "assets/projects/saras-co/06.jpg",
+          "w": 1366,
+          "h": 967
+        },
+        {
+          "src": "assets/projects/saras-co/07.jpg",
+          "w": 1366,
+          "h": 967
+        }
+      ]
+    },
+    {
+      "slug": "unboxing-blr",
+      "title": "Unboxing BLR",
+      "pageCount": 22,
+      "pages": [
+        {
+          "src": "assets/projects/unboxing-blr/01.jpg",
+          "w": 1366,
+          "h": 967
+        },
+        {
+          "src": "assets/projects/unboxing-blr/02.jpg",
+          "w": 1366,
+          "h": 967
+        },
+        {
+          "src": "assets/projects/unboxing-blr/03.jpg",
+          "w": 1366,
+          "h": 967
+        },
+        {
+          "src": "assets/projects/unboxing-blr/04.jpg",
+          "w": 1366,
+          "h": 967
+        },
+        {
+          "src": "assets/projects/unboxing-blr/05.jpg",
+          "w": 1366,
+          "h": 967
+        },
+        {
+          "src": "assets/projects/unboxing-blr/06.jpg",
+          "w": 1366,
+          "h": 967
+        },
+        {
+          "src": "assets/projects/unboxing-blr/07.jpg",
+          "w": 1366,
+          "h": 967
+        },
+        {
+          "src": "assets/projects/unboxing-blr/08.jpg",
+          "w": 1366,
+          "h": 967
+        },
+        {
+          "src": "assets/projects/unboxing-blr/09.jpg",
+          "w": 1366,
+          "h": 967
+        },
+        {
+          "src": "assets/projects/unboxing-blr/10.jpg",
+          "w": 1366,
+          "h": 967
+        },
+        {
+          "src": "assets/projects/unboxing-blr/11.jpg",
+          "w": 1366,
+          "h": 967
+        },
+        {
+          "src": "assets/projects/unboxing-blr/12.jpg",
+          "w": 1366,
+          "h": 967
+        },
+        {
+          "src": "assets/projects/unboxing-blr/13.jpg",
+          "w": 1366,
+          "h": 967
+        },
+        {
+          "src": "assets/projects/unboxing-blr/14.jpg",
+          "w": 1366,
+          "h": 967
+        },
+        {
+          "src": "assets/projects/unboxing-blr/15.jpg",
+          "w": 1366,
+          "h": 967
+        },
+        {
+          "src": "assets/projects/unboxing-blr/16.jpg",
+          "w": 1366,
+          "h": 967
+        },
+        {
+          "src": "assets/projects/unboxing-blr/17.jpg",
+          "w": 1366,
+          "h": 967
+        },
+        {
+          "src": "assets/projects/unboxing-blr/18.jpg",
+          "w": 1366,
+          "h": 967
+        },
+        {
+          "src": "assets/projects/unboxing-blr/19.jpg",
+          "w": 1366,
+          "h": 967
+        },
+        {
+          "src": "assets/projects/unboxing-blr/20.jpg",
+          "w": 1366,
+          "h": 967
+        },
+        {
+          "src": "assets/projects/unboxing-blr/21.jpg",
+          "w": 1366,
+          "h": 967
+        },
+        {
+          "src": "assets/projects/unboxing-blr/22.jpg",
+          "w": 1366,
+          "h": 967
+        }
+      ]
+    }
+  ],
+  "posters": [
+    {
+      "slug": "aj-saras-poster",
+      "original": "AJ_Saras_Poster.pdf",
+      "full": "assets/posters/full/aj-saras-poster.jpg",
+      "thumb": "assets/posters/thumb/aj-saras-poster.jpg",
+      "w": 1080,
+      "h": 1500
+    },
+    {
+      "slug": "akbars-court-a4",
+      "original": "AKBARS COURT A4.pdf",
+      "full": "assets/posters/full/akbars-court-a4.jpg",
+      "thumb": "assets/posters/thumb/akbars-court-a4.jpg",
+      "w": 1061,
+      "h": 1500
+    },
+    {
+      "slug": "barely-legal-tour-web-flyer-delhi",
+      "original": "BARELY LEGAL TOUR_Web Flyer_Delhi.png",
+      "full": "assets/posters/full/barely-legal-tour-web-flyer-delhi.jpg",
+      "thumb": "assets/posters/thumb/barely-legal-tour-web-flyer-delhi.jpg",
+      "w": 1061,
+      "h": 1500
+    },
+    {
+      "slug": "bassick-sense-del-vol-11-flyer",
+      "original": "BASSICK SENSE_DEL_Vol 11 Flyer.png",
+      "full": "assets/posters/full/bassick-sense-del-vol-11-flyer.jpg",
+      "thumb": "assets/posters/thumb/bassick-sense-del-vol-11-flyer.jpg",
+      "w": 1061,
+      "h": 1500
+    },
+    {
+      "slug": "bliss",
+      "original": "BLISS.pdf",
+      "full": "assets/posters/full/bliss.jpg",
+      "thumb": "assets/posters/thumb/bliss.jpg",
+      "w": 1061,
+      "h": 1500
+    },
+    {
+      "slug": "blot-zokhuma-web-flyer",
+      "original": "blot zokhuma web flyer.png",
+      "full": "assets/posters/full/blot-zokhuma-web-flyer.jpg",
+      "thumb": "assets/posters/thumb/blot-zokhuma-web-flyer.jpg",
+      "w": 1061,
+      "h": 1500
+    },
+    {
+      "slug": "bombay-bandstand-print-2x3",
+      "original": "BOMBAY BANDSTAND PRINT 2X3.pdf",
+      "full": "assets/posters/full/bombay-bandstand-print-2x3.jpg",
+      "thumb": "assets/posters/thumb/bombay-bandstand-print-2x3.jpg",
+      "w": 1000,
+      "h": 1500
+    },
+    {
+      "slug": "di-web-flyer",
+      "original": "DI_Web Flyer.png",
+      "full": "assets/posters/full/di-web-flyer.jpg",
+      "thumb": "assets/posters/thumb/di-web-flyer.jpg",
+      "w": 1061,
+      "h": 1500
+    },
+    {
+      "slug": "ez-riser-oceantied-a4-web-flyer",
+      "original": "EZ Riser Oceantied A4_Web Flyer.png",
+      "full": "assets/posters/full/ez-riser-oceantied-a4-web-flyer.jpg",
+      "thumb": "assets/posters/thumb/ez-riser-oceantied-a4-web-flyer.jpg",
+      "w": 1061,
+      "h": 1500
+    },
+    {
+      "slug": "ez-riser-tansane-web-flyer",
+      "original": "EZ RISER TANSANE_Web flyer.png",
+      "full": "assets/posters/full/ez-riser-tansane-web-flyer.jpg",
+      "thumb": "assets/posters/thumb/ez-riser-tansane-web-flyer.jpg",
+      "w": 1061,
+      "h": 1500
+    },
+    {
+      "slug": "goth-trad-a4",
+      "original": "GOTH TRAD_A4.pdf",
+      "full": "assets/posters/full/goth-trad-a4.jpg",
+      "thumb": "assets/posters/thumb/goth-trad-a4.jpg",
+      "w": 1061,
+      "h": 1500
+    },
+    {
+      "slug": "iseo-dodosound-flyer",
+      "original": "ISEO DODOSOUND flyer.png",
+      "full": "assets/posters/full/iseo-dodosound-flyer.jpg",
+      "thumb": "assets/posters/thumb/iseo-dodosound-flyer.jpg",
+      "w": 1061,
+      "h": 1500
+    },
+    {
+      "slug": "jaj-main-tour-print",
+      "original": "JAJ_Main Tour Print.pdf",
+      "full": "assets/posters/full/jaj-main-tour-print.jpg",
+      "thumb": "assets/posters/thumb/jaj-main-tour-print.jpg",
+      "w": 1061,
+      "h": 1500
+    },
+    {
+      "slug": "joe-armon-jones-tour-png",
+      "original": "Joe Armon Jones Tour. png.png",
+      "full": "assets/posters/full/joe-armon-jones-tour-png.jpg",
+      "thumb": "assets/posters/thumb/joe-armon-jones-tour-png.jpg",
+      "w": 1060,
+      "h": 1500
+    },
+    {
+      "slug": "kahn-a4",
+      "original": "KAHN_A4.pdf",
+      "full": "assets/posters/full/kahn-a4.jpg",
+      "thumb": "assets/posters/thumb/kahn-a4.jpg",
+      "w": 1001,
+      "h": 1500
+    },
+    {
+      "slug": "loefah-a4",
+      "original": "LOEFAH_A4.pdf",
+      "full": "assets/posters/full/loefah-a4.jpg",
+      "thumb": "assets/posters/thumb/loefah-a4.jpg",
+      "w": 1061,
+      "h": 1500
+    },
+    {
+      "slug": "madboy-a4",
+      "original": "MADBOY_A4.pdf",
+      "full": "assets/posters/full/madboy-a4.jpg",
+      "thumb": "assets/posters/thumb/madboy-a4.jpg",
+      "w": 1000,
+      "h": 1500
+    },
+    {
+      "slug": "malfnktion-a3",
+      "original": "MALFNKTION A3.pdf",
+      "full": "assets/posters/full/malfnktion-a3.jpg",
+      "thumb": "assets/posters/thumb/malfnktion-a3.jpg",
+      "w": 1061,
+      "h": 1500
+    },
+    {
+      "slug": "mocity-tbone-stakez-web-flyer",
+      "original": "MOCITY TBONE STAKEZ_Web Flyer.png",
+      "full": "assets/posters/full/mocity-tbone-stakez-web-flyer.jpg",
+      "thumb": "assets/posters/thumb/mocity-tbone-stakez-web-flyer.jpg",
+      "w": 1061,
+      "h": 1500
+    },
+    {
+      "slug": "oceantied-a3-print",
+      "original": "OCEANTIED A3 Print.pdf",
+      "full": "assets/posters/full/oceantied-a3-print.jpg",
+      "thumb": "assets/posters/thumb/oceantied-a3-print.jpg",
+      "w": 1061,
+      "h": 1500
+    },
+    {
+      "slug": "oceantied-euro-tour-2-pdf-a4",
+      "original": "OCEANTIED EURO TOUR 2_PDF A4.pdf",
+      "full": "assets/posters/full/oceantied-euro-tour-2-pdf-a4.jpg",
+      "thumb": "assets/posters/thumb/oceantied-euro-tour-2-pdf-a4.jpg",
+      "w": 1061,
+      "h": 1500
+    },
+    {
+      "slug": "oceantied-ez-riser-malta-web-flyer",
+      "original": "OCEANTIED EZ RISER MALTA_Web flyer.png",
+      "full": "assets/posters/full/oceantied-ez-riser-malta-web-flyer.jpg",
+      "thumb": "assets/posters/thumb/oceantied-ez-riser-malta-web-flyer.jpg",
+      "w": 1061,
+      "h": 1500
+    },
+    {
+      "slug": "oceantied-x-ez-a4",
+      "original": "OCEANTIED X EZ A4.pdf",
+      "full": "assets/posters/full/oceantied-x-ez-a4.jpg",
+      "thumb": "assets/posters/thumb/oceantied-x-ez-a4.jpg",
+      "w": 1061,
+      "h": 1500
+    },
+    {
+      "slug": "ox7gen-ezriser",
+      "original": "Ox7gen ezriser.png",
+      "full": "assets/posters/full/ox7gen-ezriser.jpg",
+      "thumb": "assets/posters/thumb/ox7gen-ezriser.jpg",
+      "w": 1061,
+      "h": 1500
+    },
+    {
+      "slug": "pxo-web-flyer",
+      "original": "PxO_Web Flyer.png",
+      "full": "assets/posters/full/pxo-web-flyer.jpg",
+      "thumb": "assets/posters/thumb/pxo-web-flyer.jpg",
+      "w": 1000,
+      "h": 1500
+    },
+    {
+      "slug": "ra-flyer",
+      "original": "RA Flyer.pdf",
+      "full": "assets/posters/full/ra-flyer.jpg",
+      "thumb": "assets/posters/thumb/ra-flyer.jpg",
+      "w": 1000,
+      "h": 1500
+    },
+    {
+      "slug": "raji-rags-print",
+      "original": "RAJI RAGS Print.pdf",
+      "full": "assets/posters/full/raji-rags-print.jpg",
+      "thumb": "assets/posters/thumb/raji-rags-print.jpg",
+      "w": 1000,
+      "h": 1500
+    },
+    {
+      "slug": "ripple-2x3f",
+      "original": "RIPPLE 2x3f.pdf",
+      "full": "assets/posters/full/ripple-2x3f.jpg",
+      "thumb": "assets/posters/thumb/ripple-2x3f.jpg",
+      "w": 1000,
+      "h": 1500
+    },
+    {
+      "slug": "saras-curations-story",
+      "original": "SARAS CURATIONS STORY.png",
+      "full": "assets/posters/full/saras-curations-story.jpg",
+      "thumb": "assets/posters/thumb/saras-curations-story.jpg",
+      "w": 818,
+      "h": 1500
+    },
+    {
+      "slug": "saras-curations-unit-red",
+      "original": "SARAS CURATIONS UNIT RED.png",
+      "full": "assets/posters/full/saras-curations-unit-red.jpg",
+      "thumb": "assets/posters/thumb/saras-curations-unit-red.jpg",
+      "w": 1200,
+      "h": 1500
+    },
+    {
+      "slug": "saras-spaven-3-2",
+      "original": "SARAS SPAVEN 3_2.png",
+      "full": "assets/posters/full/saras-spaven-3-2.jpg",
+      "thumb": "assets/posters/thumb/saras-spaven-3-2.jpg",
+      "w": 1117,
+      "h": 1500
+    },
+    {
+      "slug": "spaven-tour-2-main",
+      "original": "SPAVEN TOUR 2 MAIN.pdf",
+      "full": "assets/posters/full/spaven-tour-2-main.jpg",
+      "thumb": "assets/posters/thumb/spaven-tour-2-main.jpg",
+      "w": 1061,
+      "h": 1500
+    },
+    {
+      "slug": "sphaira-a3-print",
+      "original": "SPHAIRA A3 Print.pdf",
+      "full": "assets/posters/full/sphaira-a3-print.jpg",
+      "thumb": "assets/posters/thumb/sphaira-a3-print.jpg",
+      "w": 1061,
+      "h": 1500
+    },
+    {
+      "slug": "sputnik-a3-print",
+      "original": "SPUTNIK A3 Print.pdf",
+      "full": "assets/posters/full/sputnik-a3-print.jpg",
+      "thumb": "assets/posters/thumb/sputnik-a3-print.jpg",
+      "w": 1000,
+      "h": 1500
+    },
+    {
+      "slug": "su-real-niki-web-flyer",
+      "original": "Su Real_Niki_Web flyer.png",
+      "full": "assets/posters/full/su-real-niki-web-flyer.jpg",
+      "thumb": "assets/posters/thumb/su-real-niki-web-flyer.jpg",
+      "w": 1061,
+      "h": 1500
+    },
+    {
+      "slug": "taaq-1",
+      "original": "TAAQ 1 .png",
+      "full": "assets/posters/full/taaq-1.jpg",
+      "thumb": "assets/posters/thumb/taaq-1.jpg",
+      "w": 1060,
+      "h": 1500
+    },
+    {
+      "slug": "tamypro-dansun-web-flyer-2",
+      "original": "Tamypro_DanSun_Web Flyer 2.png",
+      "full": "assets/posters/full/tamypro-dansun-web-flyer-2.jpg",
+      "thumb": "assets/posters/thumb/tamypro-dansun-web-flyer-2.jpg",
+      "w": 1061,
+      "h": 1500
+    },
+    {
+      "slug": "teklife-tour-bangalore",
+      "original": "TEKLIFE TOUR Bangalore.png",
+      "full": "assets/posters/full/teklife-tour-bangalore.jpg",
+      "thumb": "assets/posters/thumb/teklife-tour-bangalore.jpg",
+      "w": 1000,
+      "h": 1500
+    }
+  ]
+}

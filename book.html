@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Book the artist — Raka Ashok</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="book">
+
+<nav class="nav">
+  <div class="nav__inner">
+    <a class="nav__brand" href="index.html"><span class="dot"></span> Raka Ashok</a>
+    <div class="nav__links">
+      <a class="pill" data-nav="work" href="work.html">Work</a>
+      <a class="pill" data-nav="posters" href="posters.html">Posters</a>
+      <a class="pill" data-nav="about" href="about.html">About</a>
+      <a class="pill" data-nav="book" href="book.html">Book</a>
+    </div>
+  </div>
+</nav>
+
+<header class="page-head container">
+  <h1 class="reveal">Book the artist</h1>
+  <p class="lead reveal">Club night, festival, brand event, or a poster that needs to hit &mdash; tell me what you&rsquo;re planning.</p>
+</header>
+
+<main class="container" style="padding-bottom:clamp(40px,7vw,90px)">
+  <form class="form reveal" id="book-form" novalidate>
+    <div class="field">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" autocomplete="name" required>
+    </div>
+    <div class="field">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" autocomplete="email" required>
+    </div>
+    <div class="field--row">
+      <div class="field">
+        <label for="type">What for</label>
+        <select id="type" name="type">
+          <option>DJ / live set</option>
+          <option>Festival</option>
+          <option>Brand / identity</option>
+          <option>Poster / artwork</option>
+          <option>Something else</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="date">Date (approx.)</label>
+        <input type="text" id="date" name="date" placeholder="e.g. Aug 2026">
+      </div>
+    </div>
+    <div class="field">
+      <label for="message">Details</label>
+      <textarea id="message" name="message" placeholder="Venue, city, budget, vibe — whatever helps." required></textarea>
+    </div>
+    <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap">
+      <button type="submit" class="btn">Send inquiry <span class="arr">&rarr;</span></button>
+      <span class="form__note">Or email <a href="mailto:hello@rakaashok.com" style="border-bottom:1px solid var(--line)">hello@rakaashok.com</a></span>
+    </div>
+    <div class="form__ok" id="form-ok">Thanks &mdash; your inquiry is ready to send. Your mail app should open; if not, write to hello@rakaashok.com.</div>
+  </form>
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__bottom">
+      <span>© <span data-year></span> Raka Ashok · Bangalore</span>
+      <div class="footer__links">
+        <a href="https://www.instagram.com/rakaflacka" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.youtube.com/rakaashok" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://www.facebook.com/rakamusic" target="_blank" rel="noopener">Facebook</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/site.js"></script>
+<script>
+(function () {
+  var f = document.getElementById("book-form");
+  var ok = document.getElementById("form-ok");
+  f.addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (!f.checkValidity()) { f.reportValidity(); return; }
+    var d = new FormData(f);
+    var subject = encodeURIComponent("Booking inquiry — " + (d.get("type") || ""));
+    var body = encodeURIComponent(
+      "Name: " + d.get("name") + "\n" +
+      "Email: " + d.get("email") + "\n" +
+      "What for: " + d.get("type") + "\n" +
+      "Date: " + (d.get("date") || "—") + "\n\n" +
+      d.get("message")
+    );
+    ok.classList.add("show");
+    window.location.href = "mailto:hello@rakaashok.com?subject=" + subject + "&body=" + body;
+  });
+})();
+</script>
+</body>
+</html>
