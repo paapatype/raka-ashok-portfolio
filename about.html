@@ -51,11 +51,6 @@
     </dl>
   </div>
 
-  <section class="belt-section">
-    <span class="eyebrow reveal">Select clients</span>
-    <div class="belt reveal"><div class="belt__track" id="belt-track"></div></div>
-  </section>
-
   <section class="listen">
     <span class="eyebrow reveal">Listen</span>
     <p class="lead reveal" style="margin:10px 0 4px">A decade of breaks, bass and bangers &mdash; tap any track to play.</p>
@@ -112,20 +107,6 @@
   </div>
 </div>
 
-<script>
-/* client belt — duplicate the list for a seamless loop */
-(function () {
-  var clients = ["Saras Co","Roma Italian Deli","Forlife","Rootnine","Lowe Lintas",
-    "Phable","Coderapper","TED","Adidas Originals","Amazon.in","Flipkart","Nucleya",
-    "Krunk","Dualist Inquiry","Social Offline","Clustr","Byg Brewski","Azure Hospitality",
-    "Heel & Buckle","Cinnamon Pictures","29K Investment Advisers","Furlenco","CommonFloor",
-    "Malfnktion","StayAbode","Tuzo"];
-  var track = document.getElementById("belt-track");
-  if (!track) return;
-  var html = clients.map(function (c) { return '<span class="belt__item">' + c + "</span>"; }).join("");
-  track.innerHTML = html + html;
-})();
-</script>
 <script src="https://w.soundcloud.com/player/api.js"></script>
 <script src="js/music.js"></script>
 <script src="js/musicgrid.js"></script>

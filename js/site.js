@@ -35,4 +35,16 @@
   // year
   var y = document.querySelector("[data-year]");
   if (y) y.textContent = new Date().getFullYear();
+
+  // client belt — renders on any page that has #belt-track (duplicated for seamless loop)
+  var beltTrack = document.getElementById("belt-track");
+  if (beltTrack) {
+    var clients = ["Saras Co", "Roma Italian Deli", "Forlife", "Rootnine", "Lowe Lintas",
+      "Phable", "Coderapper", "TED", "Adidas Originals", "Amazon.in", "Flipkart", "Nucleya",
+      "Krunk", "Dualist Inquiry", "Social Offline", "Clustr", "Byg Brewski", "Azure Hospitality",
+      "Heel & Buckle", "Cinnamon Pictures", "29K Investment Advisers", "Furlenco", "CommonFloor",
+      "Malfnktion", "StayAbode", "Tuzo"];
+    var bh = clients.map(function (c) { return '<span class="belt__item">' + c + "</span>"; }).join("");
+    beltTrack.innerHTML = bh + bh;
+  }
 })();
