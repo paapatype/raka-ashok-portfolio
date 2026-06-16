@@ -30,6 +30,17 @@
 </header>
 
 <main class="container" style="padding-bottom:clamp(40px,7vw,90px)">
+  <!-- mobile-only physical poster stack -->
+  <div class="pstack" id="pstack" tabindex="0" role="group" aria-roledescription="poster stack" aria-label="Posters — swipe, tap left/right, or use arrow keys to browse">
+    <div class="pstack__stage" id="pstack-stage"></div>
+    <div class="pstack__meta">
+      <span class="pstack__cap" id="pstack-cap"></span>
+      <span class="pstack__count" id="pstack-count"></span>
+    </div>
+    <span class="pstack__hint">Swipe or tap to shuffle</span>
+  </div>
+
+  <!-- desktop grid -->
   <div class="posters-bar">
     <span class="count" data-total></span>
     <div class="seg" data-seg aria-label="Grid size">
@@ -67,5 +78,6 @@
 <script src="js/data.js"></script>
 <script src="js/site.js"></script>
 <script src="js/posters.js"></script>
+<script src="js/poster-stack.js"></script>
 </body>
 </html>
