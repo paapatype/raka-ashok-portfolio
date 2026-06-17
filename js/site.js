@@ -52,6 +52,12 @@
       return '<span class="belt__item">' + logo + '<span class="belt__name">' + c.name + "</span></span>";
     }).join("");
     beltTrack.innerHTML = bh + bh;
+    // reveal immediately — the belt is populated after the IntersectionObserver's
+    // initial reading, so it would otherwise stay hidden when in view on load
+    var beltEl = beltTrack.closest(".belt");
+    if (beltEl) beltEl.classList.add("in");
+    var beltSec = beltTrack.closest(".belt-section");
+    if (beltSec) beltSec.querySelectorAll(".reveal").forEach(function (e) { e.classList.add("in"); });
   }
 
   // theme toggle (injected into the nav on every page; initial theme set by inline <head> script)
