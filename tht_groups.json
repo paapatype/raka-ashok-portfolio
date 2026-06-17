@@ -1,0 +1,72 @@
+{
+  "groups": [
+    {
+      "title": "FLF / Friends Like Family",
+      "text": "A monthly party series with Bangalore's favourite DJs and tastemakers. The identity is clever, concise and, of course, friendly \u2014 the initials FLF fold into a smiley.",
+      "images": [
+        {
+          "src": "assets/projects/the-humming-tree/flf-ig-post.jpg",
+          "w": 960,
+          "h": 1200
+        },
+        {
+          "src": "assets/projects/the-humming-tree/flf-fushi.jpg",
+          "w": 960,
+          "h": 1200
+        },
+        {
+          "src": "assets/projects/the-humming-tree/flf-insowmya.jpg",
+          "w": 960,
+          "h": 1200
+        },
+        {
+          "src": "assets/projects/the-humming-tree/flf-riyad.jpg",
+          "w": 960,
+          "h": 1200
+        }
+      ]
+    },
+    {
+      "title": "Pitch Please",
+      "text": "THT's weekly karaoke night. A self-explanatory identity crafted straight from the brand font.",
+      "images": [
+        {
+          "src": "assets/projects/the-humming-tree/pitch-please-ig-post.jpg",
+          "w": 960,
+          "h": 1200
+        },
+        {
+          "src": "assets/projects/the-humming-tree/pitch-please-ig-story.jpg",
+          "w": 675,
+          "h": 1200
+        }
+      ]
+    },
+    {
+      "title": "Happy Hour",
+      "text": "The Happy Hour \u2014 drinks priced so low you'll check the bill twice. Identity and copy.",
+      "images": [
+        {
+          "src": "assets/projects/the-humming-tree/tht-happy-hrs-9.jpg",
+          "w": 960,
+          "h": 1200
+        },
+        {
+          "src": "assets/projects/the-humming-tree/tht-happy-hrs-9-2.jpg",
+          "w": 960,
+          "h": 1200
+        },
+        {
+          "src": "assets/projects/the-humming-tree/tht-happy-hrs-9-3.jpg",
+          "w": 960,
+          "h": 1200
+        },
+        {
+          "src": "assets/projects/the-humming-tree/tht-happy-hrs-9-4.jpg",
+          "w": 960,
+          "h": 1200
+        }
+      ]
+    }
+  ]
+}

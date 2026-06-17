@@ -23,20 +23,42 @@
 
   // slides
   var wrap = document.querySelector("#slides");
-  wrap.innerHTML = proj.slides.map(function (s, i) {
-    var isDivider = (s.caption || "").length > 0 && (s.caption || "").length < 14;
-    var cls = "slide reveal" + (isDivider ? " slide--divider" : "");
-    var cap = s.caption
-      ? '<div class="slide__cap"><span class="n">' + pad(i + 1) + "</span><span>" + s.caption + "</span></div>"
-      : "";
-    var ar = (s.w && s.h) ? (' style="aspect-ratio:' + s.w + "/" + s.h + '"') : "";
-    return (
-      '<figure class="' + cls + '">' +
-      '<div class="slide__img"' + ar + '><img src="' + s.src + '" alt="' + proj.title + " — slide " + (i + 1) + '" loading="' + (i < 2 ? "eager" : "lazy") + '" decoding="async"></div>' +
-      cap +
-      "</figure>"
-    );
-  }).join("");
+  if (proj.kind === "grouped") {
+    wrap.innerHTML = renderGrouped(proj);
+  } else {
+    wrap.innerHTML = proj.slides.map(function (s, i) {
+      var isDivider = (s.caption || "").length > 0 && (s.caption || "").length < 14;
+      var cls = "slide reveal" + (isDivider ? " slide--divider" : "");
+      var cap = s.caption
+        ? '<div class="slide__cap"><span class="n">' + pad(i + 1) + "</span><span>" + s.caption + "</span></div>"
+        : "";
+      var ar = (s.w && s.h) ? (' style="aspect-ratio:' + s.w + "/" + s.h + '"') : "";
+      return (
+        '<figure class="' + cls + '">' +
+        '<div class="slide__img"' + ar + '><img src="' + s.src + '" alt="' + proj.title + " — slide " + (i + 1) + '" loading="' + (i < 2 ? "eager" : "lazy") + '" decoding="async"></div>' +
+        cap +
+        "</figure>"
+      );
+    }).join("");
+  }
+
+  function renderGrouped(p) {
+    var groups = [], cur = null;
+    p.slides.forEach(function (it) {
+      if (it.type === "section") { cur = { title: it.title, text: it.text, imgs: [] }; groups.push(cur); }
+      else if (cur) { cur.imgs.push(it); }
+    });
+    return groups.map(function (g) {
+      var cards = g.imgs.map(function (s) {
+        return '<figure class="tht-card reveal"><img src="' + s.src + '" alt="' + g.title + '" loading="lazy" decoding="async"></figure>';
+      }).join("");
+      return '<section class="tht-group">' +
+        '<span class="eyebrow reveal">' + g.title + "</span>" +
+        '<p class="tht-text reveal">' + g.text + "</p>" +
+        '<div class="tht-grid">' + cards + "</div>" +
+        "</section>";
+    }).join("");
+  }
 
   // next project
   var idx = DATA.indexOf(proj);

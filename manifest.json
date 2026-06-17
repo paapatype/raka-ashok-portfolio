@@ -158,6 +158,128 @@
           "h": 967
         }
       ]
+    },
+    {
+      "slug": "roma",
+      "title": "Roma",
+      "pageCount": 23,
+      "pages": [
+        {
+          "src": "assets/projects/roma/01.jpg",
+          "w": 1366,
+          "h": 967
+        },
+        {
+          "src": "assets/projects/roma/02.jpg",
+          "w": 1366,
+          "h": 966
+        },
+        {
+          "src": "assets/projects/roma/03.jpg",
+          "w": 1366,
+          "h": 967
+        },
+        {
+          "src": "assets/projects/roma/04.jpg",
+          "w": 1366,
+          "h": 966
+        },
+        {
+          "src": "assets/projects/roma/05.jpg",
+          "w": 1366,
+          "h": 967
+        },
+        {
+          "src": "assets/projects/roma/06.jpg",
+          "w": 1366,
+          "h": 966
+        },
+        {
+          "src": "assets/projects/roma/07.jpg",
+          "w": 1366,
+          "h": 967
+        },
+        {
+          "src": "assets/projects/roma/08.jpg",
+          "w": 1366,
+          "h": 967
+        },
+        {
+          "src": "assets/projects/roma/09.jpg",
+          "w": 1366,
+          "h": 967
+        },
+        {
+          "src": "assets/projects/roma/10.jpg",
+          "w": 1366,
+          "h": 967
+        },
+        {
+          "src": "assets/projects/roma/11.jpg",
+          "w": 1366,
+          "h": 967
+        },
+        {
+          "src": "assets/projects/roma/12.jpg",
+          "w": 1366,
+          "h": 967
+        },
+        {
+          "src": "assets/projects/roma/13.jpg",
+          "w": 1366,
+          "h": 967
+        },
+        {
+          "src": "assets/projects/roma/14.jpg",
+          "w": 1366,
+          "h": 967
+        },
+        {
+          "src": "assets/projects/roma/15.jpg",
+          "w": 1366,
+          "h": 967
+        },
+        {
+          "src": "assets/projects/roma/16.jpg",
+          "w": 1366,
+          "h": 967
+        },
+        {
+          "src": "assets/projects/roma/17.jpg",
+          "w": 1366,
+          "h": 967
+        },
+        {
+          "src": "assets/projects/roma/18.jpg",
+          "w": 1366,
+          "h": 967
+        },
+        {
+          "src": "assets/projects/roma/19.jpg",
+          "w": 1366,
+          "h": 967
+        },
+        {
+          "src": "assets/projects/roma/20.jpg",
+          "w": 1366,
+          "h": 967
+        },
+        {
+          "src": "assets/projects/roma/21.jpg",
+          "w": 1366,
+          "h": 967
+        },
+        {
+          "src": "assets/projects/roma/22.jpg",
+          "w": 1366,
+          "h": 967
+        },
+        {
+          "src": "assets/projects/roma/23.jpg",
+          "w": 1366,
+          "h": 967
+        }
+      ]
     }
   ],
   "posters": [

@@ -194,6 +194,240 @@ window.RAKA_DATA = {
           "caption": "♥BLR. Fin."
         }
       ]
+    },
+    {
+      "slug": "roma",
+      "title": "Roma",
+      "year": "2024",
+      "role": "Brand identity & visual system",
+      "descriptor": "An authentic, non-traditional Italian deli in Bangalore.",
+      "intro": "ROMA Italian Deli — founded by Prathap and Chef Rajath — skips the usual pizzas and pastas for high-quality, globally imported ingredients. The identity had to feel just as authentic and unapologetic: a bold custom wordmark, a sun-and-tomato palette pulled straight from Italy, and a pattern language that runs from packaging to signage. Feeling Italian today?",
+      "slides": [
+        {
+          "src": "assets/projects/roma/01.jpg",
+          "w": 1366,
+          "h": 967,
+          "caption": "ROMA Italian Deli — a bold, custom wordmark for an Italian eatery that plays by its own rules."
+        },
+        {
+          "src": "assets/projects/roma/02.jpg",
+          "w": 1366,
+          "h": 966,
+          "caption": "The tagline sets the tone — Feeling Italian Today? — an invitation, not a menu."
+        },
+        {
+          "src": "assets/projects/roma/03.jpg",
+          "w": 1366,
+          "h": 967,
+          "caption": "An authentic, non-traditional deli from Prathap and Chef Rajath, built on globally sourced ingredients rather than the usual pizzas and pastas."
+        },
+        {
+          "src": "assets/projects/roma/04.jpg",
+          "w": 1366,
+          "h": 966,
+          "caption": "The core wordmark and its 'R' sub-mark — a compact monogram for when the full lockup won't fit."
+        },
+        {
+          "src": "assets/projects/roma/05.jpg",
+          "w": 1366,
+          "h": 967,
+          "caption": "A palette drawn from Italy itself — sun-baked orange, basil green, tomato red — grounded in the Colosseum and the Cinque Terre coast."
+        },
+        {
+          "src": "assets/projects/roma/06.jpg",
+          "w": 1366,
+          "h": 966,
+          "caption": "The identity holds its warmth across every colour in the system."
+        },
+        {
+          "src": "assets/projects/roma/07.jpg",
+          "w": 1366,
+          "h": 967,
+          "caption": "Bold, appetite-forward, unmistakably ROMA."
+        },
+        {
+          "src": "assets/projects/roma/08.jpg",
+          "w": 1366,
+          "h": 967,
+          "caption": "Clear-space and construction rules keep the wordmark confident at any size."
+        },
+        {
+          "src": "assets/projects/roma/09.jpg",
+          "w": 1366,
+          "h": 967,
+          "caption": "The same discipline applied to the 'R' mark."
+        },
+        {
+          "src": "assets/projects/roma/10.jpg",
+          "w": 1366,
+          "h": 967,
+          "caption": "Co-brand lock-ups for partners and platforms."
+        },
+        {
+          "src": "assets/projects/roma/11.jpg",
+          "w": 1366,
+          "h": 967,
+          "caption": "The mood — people, plates and the easy joy of eating well together."
+        },
+        {
+          "src": "assets/projects/roma/12.jpg",
+          "w": 1366,
+          "h": 967,
+          "caption": "A pattern language built from the letterforms, for wraps, walls and everything between."
+        },
+        {
+          "src": "assets/projects/roma/13.jpg",
+          "w": 1366,
+          "h": 967,
+          "caption": "Packaging that turns takeaway into part of the brand."
+        },
+        {
+          "src": "assets/projects/roma/14.jpg",
+          "w": 1366,
+          "h": 967,
+          "caption": "Carry-bags that look as good leaving as the food tastes."
+        },
+        {
+          "src": "assets/projects/roma/15.jpg",
+          "w": 1366,
+          "h": 967,
+          "caption": "The pattern at full tilt across butcher paper and wraps."
+        },
+        {
+          "src": "assets/projects/roma/16.jpg",
+          "w": 1366,
+          "h": 967,
+          "caption": "Type system — Unbounded for the display voice, Work Sans for everything that stays quiet and clear."
+        },
+        {
+          "src": "assets/projects/roma/17.jpg",
+          "w": 1366,
+          "h": 967,
+          "caption": "The identity on social — consistent, hungry, scroll-stopping."
+        },
+        {
+          "src": "assets/projects/roma/18.jpg",
+          "w": 1366,
+          "h": 967,
+          "caption": "Worn by the team — chef's apron and staff tee."
+        },
+        {
+          "src": "assets/projects/roma/19.jpg",
+          "w": 1366,
+          "h": 967,
+          "caption": "Merch with a wink: Mamma mia!"
+        },
+        {
+          "src": "assets/projects/roma/20.jpg",
+          "w": 1366,
+          "h": 967,
+          "caption": "Signage in English and Kannada — ROMA, at home in Bangalore."
+        },
+        {
+          "src": "assets/projects/roma/21.jpg",
+          "w": 1366,
+          "h": 967,
+          "caption": "Stationery that carries the system down to the smallest detail."
+        },
+        {
+          "src": "assets/projects/roma/22.jpg",
+          "w": 1366,
+          "h": 967,
+          "caption": "Where it all leads — the food, framed by the brand."
+        },
+        {
+          "src": "assets/projects/roma/23.jpg",
+          "w": 1366,
+          "h": 967,
+          "caption": "Fine. — Italian for 'the end.'"
+        }
+      ]
+    },
+    {
+      "slug": "the-humming-tree",
+      "title": "The Humming Tree",
+      "year": "2023",
+      "role": "Event identities & campaign design",
+      "descriptor": "Event identities for one of Bangalore's favourite music venues.",
+      "intro": "The Humming Tree is a Bangalore institution — so its nights needed identities with as much personality as the room. A family of sub-brands, each clever, concise and unmistakably THT.",
+      "kind": "grouped",
+      "slides": [
+        {
+          "type": "section",
+          "title": "FLF / Friends Like Family",
+          "text": "A monthly party series with Bangalore's favourite DJs and tastemakers. The identity is clever, concise and, of course, friendly — the initials FLF fold into a smiley."
+        },
+        {
+          "src": "assets/projects/the-humming-tree/flf-ig-post.jpg",
+          "w": 960,
+          "h": 1200,
+          "caption": ""
+        },
+        {
+          "src": "assets/projects/the-humming-tree/flf-fushi.jpg",
+          "w": 960,
+          "h": 1200,
+          "caption": ""
+        },
+        {
+          "src": "assets/projects/the-humming-tree/flf-insowmya.jpg",
+          "w": 960,
+          "h": 1200,
+          "caption": ""
+        },
+        {
+          "src": "assets/projects/the-humming-tree/flf-riyad.jpg",
+          "w": 960,
+          "h": 1200,
+          "caption": ""
+        },
+        {
+          "type": "section",
+          "title": "Pitch Please",
+          "text": "THT's weekly karaoke night. A self-explanatory identity crafted straight from the brand font."
+        },
+        {
+          "src": "assets/projects/the-humming-tree/pitch-please-ig-post.jpg",
+          "w": 960,
+          "h": 1200,
+          "caption": ""
+        },
+        {
+          "src": "assets/projects/the-humming-tree/pitch-please-ig-story.jpg",
+          "w": 675,
+          "h": 1200,
+          "caption": ""
+        },
+        {
+          "type": "section",
+          "title": "Happy Hour",
+          "text": "The Happy Hour — drinks priced so low you'll check the bill twice. Identity and copy."
+        },
+        {
+          "src": "assets/projects/the-humming-tree/tht-happy-hrs-9.jpg",
+          "w": 960,
+          "h": 1200,
+          "caption": ""
+        },
+        {
+          "src": "assets/projects/the-humming-tree/tht-happy-hrs-9-2.jpg",
+          "w": 960,
+          "h": 1200,
+          "caption": ""
+        },
+        {
+          "src": "assets/projects/the-humming-tree/tht-happy-hrs-9-3.jpg",
+          "w": 960,
+          "h": 1200,
+          "caption": ""
+        },
+        {
+          "src": "assets/projects/the-humming-tree/tht-happy-hrs-9-4.jpg",
+          "w": 960,
+          "h": 1200,
+          "caption": ""
+        }
+      ]
     }
   ],
   "posters": [

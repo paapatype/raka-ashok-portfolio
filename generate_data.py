@@ -18,6 +18,12 @@ PROJECT_META = {
         "descriptor": "A participative, volunteer-driven project crafting a new brand narrative for Bangalore.",
         "intro": "Bangalore has quietly become a multifaceted global city, yet its story has never been told as well as it deserves. Unboxing BLR is a volunteer-driven effort to craft that narrative across many media — and this is the identity system that holds it all together.",
     },
+    "roma": {
+        "title": "Roma", "year": "2024",
+        "role": "Brand identity & visual system",
+        "descriptor": "An authentic, non-traditional Italian deli in Bangalore.",
+        "intro": "ROMA Italian Deli — founded by Prathap and Chef Rajath — skips the usual pizzas and pastas for high-quality, globally imported ingredients. The identity had to feel just as authentic and unapologetic: a bold custom wordmark, a sun-and-tomato palette pulled straight from Italy, and a pattern language that runs from packaging to signage. Feeling Italian today?",
+    },
 }
 
 PROJECT_CAPTIONS = {
@@ -53,6 +59,31 @@ PROJECT_CAPTIONS = {
         "Tote lock-ups in English and Kannada — compact and instantly recognisable.",
         "Logo behaviour for video — over imagery, at 20% opacity, in solid zaffre, and in black.",
         "♥BLR. Fin.",
+    ],
+    "roma": [
+        "ROMA Italian Deli — a bold, custom wordmark for an Italian eatery that plays by its own rules.",
+        "The tagline sets the tone — Feeling Italian Today? — an invitation, not a menu.",
+        "An authentic, non-traditional deli from Prathap and Chef Rajath, built on globally sourced ingredients rather than the usual pizzas and pastas.",
+        "The core wordmark and its 'R' sub-mark — a compact monogram for when the full lockup won't fit.",
+        "A palette drawn from Italy itself — sun-baked orange, basil green, tomato red — grounded in the Colosseum and the Cinque Terre coast.",
+        "The identity holds its warmth across every colour in the system.",
+        "Bold, appetite-forward, unmistakably ROMA.",
+        "Clear-space and construction rules keep the wordmark confident at any size.",
+        "The same discipline applied to the 'R' mark.",
+        "Co-brand lock-ups for partners and platforms.",
+        "The mood — people, plates and the easy joy of eating well together.",
+        "A pattern language built from the letterforms, for wraps, walls and everything between.",
+        "Packaging that turns takeaway into part of the brand.",
+        "Carry-bags that look as good leaving as the food tastes.",
+        "The pattern at full tilt across butcher paper and wraps.",
+        "Type system — Unbounded for the display voice, Work Sans for everything that stays quiet and clear.",
+        "The identity on social — consistent, hungry, scroll-stopping.",
+        "Worn by the team — chef's apron and staff tee.",
+        "Merch with a wink: Mamma mia!",
+        "Signage in English and Kannada — ROMA, at home in Bangalore.",
+        "Stationery that carries the system down to the smallest detail.",
+        "Where it all leads — the food, framed by the brand.",
+        "Fine. — Italian for 'the end.'",
     ],
 }
 
@@ -120,6 +151,23 @@ for proj in manifest["projects"]:
     projects.append({"slug": slug, "title": meta["title"], "year": meta["year"],
                      "role": meta["role"], "descriptor": meta["descriptor"],
                      "intro": meta["intro"], "slides": slides})
+
+# ---- The Humming Tree (grouped project; social images, not a PDF) ----
+tht_path = os.path.join(OUT, "tht_groups.json")
+if os.path.exists(tht_path):
+    tht = json.load(open(tht_path))
+    tht_slides = []
+    for g in tht["groups"]:
+        tht_slides.append({"type": "section", "title": g["title"], "text": g["text"]})
+        for im in g["images"]:
+            tht_slides.append({"src": im["src"], "w": im["w"], "h": im["h"], "caption": ""})
+    projects.append({
+        "slug": "the-humming-tree", "title": "The Humming Tree", "year": "2023",
+        "role": "Event identities & campaign design",
+        "descriptor": "Event identities for one of Bangalore's favourite music venues.",
+        "intro": "The Humming Tree is a Bangalore institution — so its nights needed identities with as much personality as the room. A family of sub-brands, each clever, concise and unmistakably THT.",
+        "kind": "grouped", "slides": tht_slides,
+    })
 
 # ---- build posters (curated order, rest appended) ----
 by_slug = {p["slug"]: p for p in manifest["posters"]}
