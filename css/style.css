@@ -400,10 +400,10 @@ h2,.h2{font-size:var(--fs-h2);font-weight:650;line-height:1.08;letter-spacing:-.
 .footer__links a{color:var(--muted-2);transition:color .2s}
 .footer__links a:hover{color:var(--ink)}
 .footer__sign-wrap{display:flex;justify-content:center;padding:clamp(14px,3.5vw,40px) 0 clamp(6px,1.6vw,14px)}
-.footer__sign{height:clamp(46px,8vw,90px);width:auto;max-width:84vw;display:block}
-.footer__sign--dark{display:none}
-[data-theme="dark"] .footer__sign--light{display:none}
-[data-theme="dark"] .footer__sign--dark{display:block}
+.footer__sign{display:block;width:clamp(190px,34vw,360px);aspect-ratio:928/233;max-width:84vw;
+  background-color:#d6453b;
+  -webkit-mask:url(../assets/raka-signature.svg) center/contain no-repeat;
+  mask:url(../assets/raka-signature.svg) center/contain no-repeat}
 
 /* ---------- scroll reveal ---------- */
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
