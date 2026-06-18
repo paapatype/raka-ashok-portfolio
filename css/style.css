@@ -399,6 +399,8 @@ h2,.h2{font-size:var(--fs-h2);font-weight:650;line-height:1.08;letter-spacing:-.
 .footer__links{display:flex;gap:20px;flex-wrap:wrap}
 .footer__links a{color:var(--muted-2);transition:color .2s}
 .footer__links a:hover{color:var(--ink)}
+.footer__sign-wrap{display:flex;justify-content:center;padding:clamp(10px,3vw,30px) 0 clamp(2px,1.4vw,10px)}
+.footer__sign{height:clamp(48px,7vw,82px);width:auto;max-width:82vw;opacity:.95}
 
 /* ---------- scroll reveal ---------- */
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
