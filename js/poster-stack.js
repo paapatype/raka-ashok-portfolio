@@ -1,4 +1,4 @@
-/* Mobile-only poster stack — a physical pile of posters that fans on swipe and
+/* Mobile-only poster stack - a physical pile of posters that fans on swipe and
    settles back into a vertical stack. Active poster front-and-centre; swipe/tap/
    arrow-keys to browse; loops; transform+opacity only; respects reduced-motion. */
 (function () {

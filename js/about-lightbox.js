@@ -1,4 +1,4 @@
-/* About page — click any performance photo to open a large, navigable lightbox.
+/* About page - click any performance photo to open a large, navigable lightbox.
    Reuses the .lb lightbox styles. Hero + on-stage gallery, in DOM order. */
 (function () {
   var imgs = Array.prototype.slice.call(

@@ -1,4 +1,4 @@
-/* Music tiles — explorable grid, played inline via the SoundCloud Widget API */
+/* Music tiles - explorable grid, played inline via the SoundCloud Widget API */
 (function () {
   var DATA = window.RAKA_MUSIC || [];
   var grid = document.getElementById("music-grid");

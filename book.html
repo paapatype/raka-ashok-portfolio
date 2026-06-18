@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script>try{var t=localStorage.getItem("raka-theme")||(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light");document.documentElement.setAttribute("data-theme",t);}catch(e){}</script>
-<title>Book the artist — Raka Ashok</title>
+<title>Book the artist - Raka Ashok</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
@@ -26,7 +26,7 @@
 
 <header class="page-head container">
   <h1 class="reveal">Book the artist</h1>
-  <p class="lead reveal">Club night, festival, brand event, or a poster that needs to hit &mdash; tell me what you&rsquo;re planning.</p>
+  <p class="lead reveal">Club night, festival, brand event, or a poster that needs to hit - tell me what you&rsquo;re planning.</p>
 </header>
 
 <main class="container" style="padding-bottom:clamp(40px,7vw,90px)">
@@ -57,13 +57,13 @@
     </div>
     <div class="field">
       <label for="message">Details</label>
-      <textarea id="message" name="message" placeholder="Venue, city, budget, vibe — whatever helps." required></textarea>
+      <textarea id="message" name="message" placeholder="Venue, city, budget, vibe - whatever helps." required></textarea>
     </div>
     <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap">
       <button type="submit" class="btn">Send inquiry <span class="arr">&rarr;</span></button>
       <span class="form__note">Or email <a href="mailto:hello@rakaashok.com" style="border-bottom:1px solid var(--line)">hello@rakaashok.com</a></span>
     </div>
-    <div class="form__ok" id="form-ok">Thanks &mdash; your inquiry is ready to send. Your mail app should open; if not, write to hello@rakaashok.com.</div>
+    <div class="form__ok" id="form-ok">Thanks - your inquiry is ready to send. Your mail app should open; if not, write to hello@rakaashok.com.</div>
   </form>
 </main>
 
@@ -90,12 +90,12 @@
     e.preventDefault();
     if (!f.checkValidity()) { f.reportValidity(); return; }
     var d = new FormData(f);
-    var subject = encodeURIComponent("Booking inquiry — " + (d.get("type") || ""));
+    var subject = encodeURIComponent("Booking inquiry - " + (d.get("type") || ""));
     var body = encodeURIComponent(
       "Name: " + d.get("name") + "\n" +
       "Email: " + d.get("email") + "\n" +
       "What for: " + d.get("type") + "\n" +
-      "Date: " + (d.get("date") || "—") + "\n\n" +
+      "Date: " + (d.get("date") || "-") + "\n\n" +
       d.get("message")
     );
     ok.classList.add("show");

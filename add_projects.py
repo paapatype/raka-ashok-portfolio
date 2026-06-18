@@ -47,13 +47,13 @@ THT = os.path.join(DESIGN, "THE HUMMING TREE", "THT Social Media ")
 tht_dir = os.path.join(ASSETS, "projects", "the-humming-tree"); os.makedirs(tht_dir, exist_ok=True)
 groups_src = [
     ("FLF / Friends Like Family",
-     "A monthly party series with Bangalore's favourite DJs and tastemakers. The identity is clever, concise and, of course, friendly — the initials FLF fold into a smiley.",
+     "A monthly party series with Bangalore's favourite DJs and tastemakers. The identity is clever, concise and, of course, friendly - the initials FLF fold into a smiley.",
      ["FLF/FLF IG Post.png", "FLF/FLF Fushi.png", "FLF/FLF Insowmya.png", "FLF/FLF Riyad.png"]),
     ("Pitch Please",
      "THT's weekly karaoke night. A self-explanatory identity crafted straight from the brand font.",
      ["Pitch Please/Pitch Please IG Post.png", "Pitch Please/Pitch Please IG Story.png"]),
     ("Happy Hour",
-     "The Happy Hour — drinks priced so low you'll check the bill twice. Identity and copy.",
+     "The Happy Hour - drinks priced so low you'll check the bill twice. Identity and copy.",
      ["Happy Hours/THT HAPPY HRS 9.png", "Happy Hours/THT HAPPY HRS 9_2.png",
       "Happy Hours/THT HAPPY HRS 9_3.png", "Happy Hours/THT HAPPY HRS 9_4.png"]),
 ]

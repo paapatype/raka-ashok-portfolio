@@ -36,7 +36,7 @@
   var y = document.querySelector("[data-year]");
   if (y) y.textContent = new Date().getFullYear();
 
-  // client belt — renders on any page that has #belt-track (duplicated for seamless loop)
+  // client belt - renders on any page that has #belt-track (duplicated for seamless loop)
   var beltTrack = document.getElementById("belt-track");
   if (beltTrack) {
     var fallback = ["Saras Co", "Roma Italian Deli", "Forlife", "Rootnine", "Lowe Lintas",
@@ -52,7 +52,7 @@
       return '<span class="belt__item">' + logo + '<span class="belt__name">' + c.name + "</span></span>";
     }).join("");
     beltTrack.innerHTML = bh + bh;
-    // reveal immediately — the belt is populated after the IntersectionObserver's
+    // reveal immediately - the belt is populated after the IntersectionObserver's
     // initial reading, so it would otherwise stay hidden when in view on load
     var beltEl = beltTrack.closest(".belt");
     if (beltEl) beltEl.classList.add("in");

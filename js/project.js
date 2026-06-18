@@ -5,7 +5,7 @@
   var proj = DATA.filter(function (p) { return p.slug === slug; })[0] || DATA[0];
   if (!proj) return;
 
-  document.title = proj.title + " — Raka Ashok";
+  document.title = proj.title + " - Raka Ashok";
 
   // header
   var head = document.querySelector("#proj-head");
@@ -35,7 +35,7 @@
       var ar = (s.w && s.h) ? (' style="aspect-ratio:' + s.w + "/" + s.h + '"') : "";
       return (
         '<figure class="' + cls + '">' +
-        '<div class="slide__img"' + ar + '><img src="' + s.src + '" alt="' + proj.title + " — slide " + (i + 1) + '" loading="' + (i < 2 ? "eager" : "lazy") + '" decoding="async"></div>' +
+        '<div class="slide__img"' + ar + '><img src="' + s.src + '" alt="' + proj.title + " - slide " + (i + 1) + '" loading="' + (i < 2 ? "eager" : "lazy") + '" decoding="async"></div>' +
         cap +
         "</figure>"
       );
