@@ -163,6 +163,21 @@ h2,.h2{font-size:var(--fs-h2);font-weight:650;line-height:1.08;letter-spacing:-.
 .row__role{display:none}
 @media(min-width:720px){.row__role{display:inline}}
 
+/* ---------- what I do (services grid) ---------- */
+.services{display:grid;grid-template-columns:1fr;gap:1px;margin-top:clamp(22px,3vw,38px);
+  background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+@media(min-width:680px){.services{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1000px){.services{grid-template-columns:repeat(3,1fr)}}
+.service{background:var(--bg);padding:clamp(22px,2.6vw,34px);transition:background .25s var(--ease)}
+.service:hover{background:var(--fill)}
+.service h3{font-size:1.05rem;font-weight:600;letter-spacing:-.01em;margin-bottom:7px}
+.service p{color:var(--muted-2);font-size:.95rem;line-height:1.5}
+
+/* ---------- work page groupings ---------- */
+.worklist-group{padding-top:clamp(36px,5vw,60px)}
+.worklist-group:first-of-type{padding-top:0}
+.worklist-group>.eyebrow{display:block;margin-bottom:16px}
+
 /* ---------- project article ---------- */
 .back{display:inline-flex;align-items:center;gap:.5em;color:var(--muted-2);font-size:.92rem;
   transition:color .2s var(--ease),gap .2s var(--ease)}
