@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script>try{var t=localStorage.getItem("raka-theme")||(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light");document.documentElement.setAttribute("data-theme",t);}catch(e){}</script>
-<script>try{var d=document.documentElement,p=location.pathname,home=(p===""||p==="/"||/index\.html$/.test(p));if(home){d.classList.add("lk-pending","tag-pending");if(!sessionStorage.getItem("raka-intro-seen")&&!matchMedia("(prefers-reduced-motion:reduce)").matches&&!(navigator.connection&&navigator.connection.saveData)){d.classList.add("intro-on","lens-pending");}setTimeout(function(){d.classList.remove("lk-pending","tag-pending","lens-pending","intro-on");},9000);}}catch(e){}</script>
+<script>try{var d=document.documentElement,p=location.pathname,home=(p===""||p==="/"||/index\.html$/.test(p));if(home){d.classList.add("tag-pending");if(!sessionStorage.getItem("raka-hero-seen")&&!matchMedia("(prefers-reduced-motion:reduce)").matches){d.classList.add("hero-intro");}setTimeout(function(){d.classList.remove("tag-pending","hero-intro");},9000);}}catch(e){}</script>
 <title>Raka Ashok - DJ · Producer · Designer, Bangalore</title>
 <meta name="description" content="Raka Ashok - producer, DJ and visual artist from Bangalore. Selected design work and gig posters.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="css/style.css?v=8">
+<link rel="stylesheet" href="css/style.css?v=9">
 </head>
 <body data-page="home">
 
@@ -27,16 +27,11 @@
   </div>
 </nav>
 
-<header class="hero container">
-  <div class="lockup hero-lockup" role="img" aria-label="Raka Ashok">
-    <span class="lockup__letters"></span>
-    <span class="lockup__lens">
-      <video class="lockup__video" muted loop playsinline preload="none"
-             poster="assets/video/raka-portal-poster.jpg"
-             data-src="assets/video/raka-portal.mp4" data-src-sm="assets/video/raka-portal-sm.mp4"></video>
-    </span>
-  </div>
-  <h1 class="hero-tagline">Local flavor.<br>Global sound.<span class="tm">&trade;</span></h1>
+<header class="hero hero--video">
+  <div class="hero__bg"><video class="hero__video" muted loop playsinline preload="none"></video></div>
+  <div class="hero__scrim" aria-hidden="true"></div>
+  <div class="hero__frame" aria-hidden="true"></div>
+  <h1 class="hero-tagline">Local flavor. Global sound.<span class="tm">&trade;</span></h1>
 </header>
 
 <section class="section container">
@@ -90,17 +85,6 @@
 </footer>
 
 <script src="js/data.js?v=3"></script>
-<div class="intro" id="intro" aria-hidden="true">
-  <div class="intro__stage">
-    <div class="intro__lens" id="introLens">
-      <video id="introVideo" muted loop playsinline preload="auto"
-             poster="assets/video/raka-portal-poster.jpg"
-             data-src="assets/video/raka-portal.mp4" data-src-sm="assets/video/raka-portal-sm.mp4"></video>
-    </div>
-  </div>
-  <button class="intro__skip" id="introSkip" type="button">Skip</button>
-</div>
-
 <script src="js/site.js?v=2"></script>
 <script src="js/intro.js?v=1"></script>
 <script src="js/work.js"></script>

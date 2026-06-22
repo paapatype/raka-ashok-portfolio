@@ -1,138 +1,67 @@
-/* RAKA ASHOK — video-portal lockup + cinematic intro
-   The "O" of ASHOK is a lens that plays footage. On first visit the lens flies in
-   (reverse-zoom -> centre -> one 3D spin -> lands as the O), then the tagline fades in. */
+/* RAKA ASHOK - full-bleed video hero
+   Picks a random clip from the pool (loader + hero don't always show the same one),
+   plays it muted/looping behind the wordmark + tagline, with a first-visit entrance. */
 (function () {
   "use strict";
   var root = document.documentElement;
-
-  function clearStage() {
-    root.classList.remove("lk-pending", "lens-pending", "tag-pending", "intro-on");
-    var i = document.getElementById("intro");
-    if (i && i.parentNode) i.parentNode.removeChild(i);
-  }
+  function bail() { root.classList.remove("tag-pending", "hero-intro"); }
 
   try {
-    var reduce  = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var hero = document.querySelector(".hero--video");
+    if (!hero) { bail(); return; }
+    var video = hero.querySelector("video");
+    var nav = document.querySelector(".nav");
+    var reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
     var saveData = !!(navigator.connection && navigator.connection.saveData);
-    var small   = matchMedia("(max-width: 768px)").matches;
-    var isHome  = document.body.getAttribute("data-page") === "home";
+    var small = matchMedia("(max-width: 768px)").matches;
 
-    function srcFor(v) { return (small || saveData) && v.dataset.srcSm ? v.dataset.srcSm : v.dataset.src; }
-    function load(v) { if (!v || v.dataset.on) return; var s = srcFor(v); if (s) { v.src = s; v.dataset.on = "1"; try { v.load(); } catch (e) {} } }
-    function play(v) { if (!v) return; var p; try { p = v.play(); } catch (e) {} if (p && p.catch) p.catch(function () {}); }
+    // keep the hero pulled up exactly under the (transparent) nav
+    function setNavH() { if (nav) root.style.setProperty("--nav-h", nav.offsetHeight + "px"); }
+    setNavH();
+    addEventListener("resize", setNavH);
 
-    var heroLockup = document.querySelector(".hero-lockup");
-    var heroVideo  = heroLockup ? heroLockup.querySelector("video") : null;
+    // ---- Raka clip pool (add more files here and they auto-join the rotation) ----
+    var POOL = [
+      { mp4: "assets/video/raka-stage.mp4",  sm: "assets/video/raka-stage-sm.mp4",  poster: "assets/video/raka-stage-poster.jpg",  land: true },
+      { mp4: "assets/video/raka-portal.mp4", sm: "assets/video/raka-portal-sm.mp4", poster: "assets/video/raka-portal-poster.jpg", land: false }
+    ];
+    // desktop favours landscape clips; mobile can use any
+    var candidates = small ? POOL : POOL.filter(function (c) { return c.land; });
+    if (!candidates.length) candidates = POOL;
+    var pick = candidates[Math.floor(Math.random() * candidates.length)];
+    var src = (small || saveData) && pick.sm ? pick.sm : pick.mp4;
+    video.setAttribute("poster", pick.poster);
 
-    // Hero lens playback once the intro is out of the way.
-    function heroPlayback() {
-      if (!heroVideo) return;
-      if (reduce) { // hover/focus only
-        var on = function () { load(heroVideo); play(heroVideo); };
-        var off = function () { heroVideo.pause(); };
-        heroLockup.addEventListener("pointerenter", on);
-        heroLockup.addEventListener("pointerleave", off);
-        heroLockup.addEventListener("focusin", on);
-        heroLockup.addEventListener("focusout", off);
-        return;
-      }
-      var io = new IntersectionObserver(function (es) {
-        es.forEach(function (e) { if (e.isIntersecting) { load(heroVideo); play(heroVideo); } else heroVideo.pause(); });
-      }, { threshold: 0.2 });
-      io.observe(heroVideo);
-      document.addEventListener("visibilitychange", function () { if (document.hidden) heroVideo.pause(); });
-    }
-
+    function play() { var p; try { p = video.play(); } catch (e) {} if (p && p.catch) p.catch(function () {}); }
+    function load() { if (video.dataset.on) return; video.src = src; video.dataset.on = "1"; try { video.load(); } catch (e) {} }
     function revealTagline() { root.classList.remove("tag-pending"); }
 
-    var introEl = document.getElementById("intro");
-    var armed = root.classList.contains("intro-on"); // set pre-paint by the head script
-    var shouldIntro = isHome && introEl && armed && !reduce && !saveData && !sessionStorage.getItem("raka-intro-seen");
-
-    if (!shouldIntro) {
-      if (introEl && introEl.parentNode) introEl.parentNode.removeChild(introEl);
-      root.classList.remove("intro-on");
-      requestAnimationFrame(function () {
-        root.classList.remove("lk-pending", "lens-pending");
-        setTimeout(revealTagline, 180);
-      });
-      heroPlayback();
+    if (reduce) { // respect motion preference: static poster, play on hover/focus
+      revealTagline();
+      var on = function () { load(); play(); }, off = function () { video.pause(); };
+      hero.addEventListener("pointerenter", on);
+      hero.addEventListener("pointerleave", off);
+      hero.addEventListener("focusin", on);
+      hero.addEventListener("focusout", off);
       return;
     }
 
-    // ---------- run the intro ----------
-    sessionStorage.setItem("raka-intro-seen", "1");
-    var lens = document.getElementById("introLens");
-    var iv   = document.getElementById("introVideo");
-    var skip = document.getElementById("introSkip");
-    load(iv); play(iv);
+    // autoplay (muted) while in view, pause offscreen / when tab hidden
+    if ("IntersectionObserver" in window) {
+      var io = new IntersectionObserver(function (es) {
+        es.forEach(function (e) { if (e.isIntersecting) { load(); play(); } else video.pause(); });
+      }, { threshold: 0.15 });
+      io.observe(video);
+    } else { load(); play(); }
+    document.addEventListener("visibilitychange", function () { if (document.hidden) video.pause(); });
 
-    var EASE = "cubic-bezier(.22,.61,.36,1)", EASE_IO = "cubic-bezier(.66,0,.2,1)";
-    var SLOW = /introslow/.test(location.search) ? 4 : 1; // debug: /index.html?introslow
-    var done = false, anims = [];
-    function rec(a) { anims.push(a); return a; }
-
-    function finish() {
-      if (done) return; done = true;
-      if (heroVideo) { load(heroVideo); play(heroVideo); }
-      root.classList.remove("lk-pending", "lens-pending"); // letters + real lens in
-      if (introEl) introEl.classList.add("is-out", "bg-out");
-      setTimeout(revealTagline, 360);                       // tagline fades in LAST
-      setTimeout(function () {
-        if (introEl && introEl.parentNode) introEl.parentNode.removeChild(introEl);
-        root.classList.remove("intro-on");
-      }, 720);
-      heroPlayback();
+    // entrance: first visit this session animates in (the "loader" moment); tagline last
+    if (root.classList.contains("hero-intro")) {
+      setTimeout(revealTagline, 1150);
+      setTimeout(function () { root.classList.remove("hero-intro"); }, 2000);
+    } else {
+      requestAnimationFrame(function () { setTimeout(revealTagline, 120); });
     }
-
-    function sequence() {
-      // 1) reverse-zoom: huge + blurred -> centred
-      rec(lens.animate(
-        [{ transform: "scale(2.7)", filter: "blur(16px)", opacity: 0 },
-         { transform: "scale(1)",   filter: "blur(2px)",  opacity: 1 }],
-        { duration: 1150 * SLOW, easing: EASE, fill: "both" }
-      )).finished.then(function () {
-        if (done) return Promise.reject();
-        // 2) exactly one 3D rotation, blur swells then resolves sharp
-        return rec(lens.animate(
-          [{ transform: "perspective(1400px) rotateY(0deg) scale(1)",    filter: "blur(2px)" },
-           { transform: "perspective(1400px) rotateY(180deg) scale(1.05)", filter: "blur(9px)", offset: 0.5 },
-           { transform: "perspective(1400px) rotateY(360deg) scale(1)",   filter: "blur(0px)" }],
-          { duration: 1050 * SLOW, easing: "cubic-bezier(.5,0,.2,1)", fill: "both" }
-        )).finished;
-      }).then(function () {
-        if (done) return Promise.reject();
-        // 3) FLIP into the hero O; letters assemble; page revealed behind
-        var target = document.querySelector(".hero-lockup .lockup__lens");
-        root.classList.remove("lk-pending");
-        if (introEl) introEl.classList.add("bg-out");
-        if (!target) { finish(); return Promise.reject(); }
-        var lr = lens.getBoundingClientRect(), tr = target.getBoundingClientRect();
-        var dx = (tr.left + tr.width / 2) - (lr.left + lr.width / 2);
-        var dy = (tr.top + tr.height / 2) - (lr.top + lr.height / 2);
-        var s = tr.width / lr.width;
-        return rec(lens.animate(
-          [{ transform: "translate(0,0) scale(1)" },
-           { transform: "translate(" + dx + "px," + dy + "px) scale(" + s + ")" }],
-          { duration: 900 * SLOW, easing: EASE_IO, fill: "both" }
-        )).finished;
-      }).then(function () { finish(); }).catch(function () { /* skipped/cancelled */ });
-    }
-
-    function skipNow() {
-      if (done) return;
-      anims.forEach(function (a) { try { a.cancel(); } catch (e) {} });
-      if (introEl) introEl.classList.add("bg-out");
-      finish();
-    }
-    if (skip) skip.addEventListener("click", skipNow);
-    addEventListener("keydown", function (e) { if (e.key === "Escape") skipNow(); });
-    addEventListener("wheel", function w() { skipNow(); removeEventListener("wheel", w); }, { passive: true });
-    addEventListener("touchmove", function t() { skipNow(); removeEventListener("touchmove", t); }, { passive: true });
-
-    // start once laid out, so the FLIP target rect is correct
-    requestAnimationFrame(function () { requestAnimationFrame(sequence); });
-  } catch (err) {
-    clearStage(); // never leave the hero hidden
-  }
+    sessionStorage.setItem("raka-hero-seen", "1");
+  } catch (err) { bail(); }
 })();
