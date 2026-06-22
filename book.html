@@ -59,11 +59,12 @@
       <label for="message">Details</label>
       <textarea id="message" name="message" placeholder="Venue, city, budget, vibe - whatever helps." required></textarea>
     </div>
+    <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
     <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap">
       <button type="submit" class="btn">Send inquiry <span class="arr">&rarr;</span></button>
       <span class="form__note">Or email <a href="mailto:beatsbyraka@gmail.com" style="border-bottom:1px solid var(--line)">beatsbyraka@gmail.com</a></span>
     </div>
-    <div class="form__ok" id="form-ok">Thanks - your inquiry is ready to send. Your mail app should open; if not, write to beatsbyraka@gmail.com.</div>
+    <div class="form__ok" id="form-ok">Thanks - your inquiry has been sent. I&rsquo;ll be in touch soon.</div>
   </form>
 </main>
 
@@ -88,22 +89,62 @@
 <script src="js/site.js?v=2"></script>
 <script>
 (function () {
+  var ACCESS_KEY = "88c5cbc2-ad80-483a-8287-e787bfb3bae4";
+  var MAILTO = "beatsbyraka@gmail.com";
   var f = document.getElementById("book-form");
   var ok = document.getElementById("form-ok");
+  var btn = f.querySelector('button[type="submit"]');
+  var btnHTML = btn.innerHTML;
+
+  function show(msg) { ok.textContent = msg; ok.classList.add("show"); }
+
+  function mailtoFallback(d) {
+    var subject = encodeURIComponent("Booking inquiry - " + (d.type || ""));
+    var body = encodeURIComponent(
+      "Name: " + d.name + "\n" +
+      "Email: " + d.email + "\n" +
+      "What for: " + d.type + "\n" +
+      "Date: " + (d.date || "-") + "\n\n" +
+      (d.message || "")
+    );
+    window.location.href = "mailto:" + MAILTO + "?subject=" + subject + "&body=" + body;
+  }
+
   f.addEventListener("submit", function (e) {
     e.preventDefault();
     if (!f.checkValidity()) { f.reportValidity(); return; }
-    var d = new FormData(f);
-    var subject = encodeURIComponent("Booking inquiry - " + (d.get("type") || ""));
-    var body = encodeURIComponent(
-      "Name: " + d.get("name") + "\n" +
-      "Email: " + d.get("email") + "\n" +
-      "What for: " + d.get("type") + "\n" +
-      "Date: " + (d.get("date") || "-") + "\n\n" +
-      d.get("message")
-    );
-    ok.classList.add("show");
-    window.location.href = "mailto:beatsbyraka@gmail.com?subject=" + subject + "&body=" + body;
+    var d = Object.fromEntries(new FormData(f).entries());
+    if (d.botcheck) return; // honeypot: ignore bots
+
+    var payload = {
+      access_key: ACCESS_KEY,
+      subject: "New booking inquiry - " + (d.type || "rakaashok.com"),
+      from_name: "rakaashok.com booking form",
+      replyto: d.email,
+      name: d.name,
+      email: d.email,
+      "What for": d.type,
+      "Date": d.date || "-",
+      message: d.message
+    };
+
+    btn.disabled = true; btn.textContent = "Sending...";
+    fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify(payload)
+    })
+      .then(function (r) { return r.json(); })
+      .then(function (res) {
+        btn.disabled = false; btn.innerHTML = btnHTML;
+        if (res && res.success) { f.reset(); show("Thanks - your inquiry has been sent. I'll be in touch soon."); }
+        else { throw new Error((res && res.message) || "send failed"); }
+      })
+      .catch(function () {
+        btn.disabled = false; btn.innerHTML = btnHTML;
+        show("Couldn't send automatically - opening your email app instead.");
+        mailtoFallback(d);
+      });
   });
 })();
 </script>
