@@ -110,15 +110,16 @@ p,.lead,figcaption,li,blockquote{text-wrap:pretty}
   display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
 }
 .nav__brand{
-  display:inline-flex;align-items:center;gap:.5em;
-  padding:9px 18px;border-radius:var(--radius);
-  background:var(--fill);
-  font-weight:600;letter-spacing:-.02em;
-  transition:background .25s var(--ease), transform .25s var(--ease), scale .15s var(--ease);
+  display:inline-flex;align-items:center;
+  padding:6px;border-radius:14px;
+  transition:opacity .25s var(--ease), scale .15s var(--ease);
 }
-.nav__brand:hover{background:var(--fill-2)}
+.nav__brand:hover{opacity:.7}
 .nav__brand:active{scale:.96}
-.nav__brand .dot{width:7px;height:7px;border-radius:50%;background:var(--ink);display:inline-block}
+.nav__logo{display:block;height:clamp(26px,3.4vw,34px);aspect-ratio:2130/571;width:auto;
+  background-color:var(--ink);
+  -webkit-mask:url(../assets/raka-logo.svg) center/contain no-repeat;
+  mask:url(../assets/raka-logo.svg) center/contain no-repeat}
 .nav__links{display:flex;gap:8px;flex-wrap:wrap}
 .pill{
   padding:9px 16px;border-radius:var(--radius);
