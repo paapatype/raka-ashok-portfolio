@@ -432,7 +432,8 @@ p,.lead,figcaption,li,blockquote{text-wrap:pretty}
 
 /* ---------- misc ---------- */
 .hero{padding-top:clamp(46px,11vw,140px);padding-bottom:clamp(40px,8vw,90px);
-  min-height:clamp(440px,64vh,760px);display:flex;flex-direction:column;justify-content:center}
+  min-height:clamp(440px,64vh,760px);display:flex;flex-direction:column;justify-content:center;
+  align-items:center;text-align:center}
 .hero .lead{margin-top:clamp(20px,3vw,38px);max-width:36ch}
 .hero>.reveal:nth-child(2){transition-delay:.08s}
 .hero>.reveal:nth-child(3){transition-delay:.16s}
@@ -539,4 +540,56 @@ body.player-open{padding-bottom:148px}
 @media(max-width:768px){
   .nav{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(var(--glass-rgb),.94)}
   .posters-bar{backdrop-filter:none;-webkit-backdrop-filter:none;background:var(--bg);top:58px}
+}
+
+
+/* ============================================================
+   RAKA ASHOK - video-portal lockup + cinematic intro
+   ============================================================ */
+.lockup{position:relative;display:block;width:100%;aspect-ratio:2130/571;line-height:0}
+.lockup__letters{position:absolute;inset:0;background:var(--ink);
+  -webkit-mask:url(../assets/raka-logo-letters.svg) center/contain no-repeat;
+  mask:url(../assets/raka-logo-letters.svg) center/contain no-repeat}
+.lockup__lens{position:absolute;left:49.441%;top:49.855%;width:31.559%;height:40.549%;
+  overflow:hidden;background:var(--fill);
+  -webkit-mask:url(../assets/raka-portal.svg) center/contain no-repeat;
+  mask:url(../assets/raka-portal.svg) center/contain no-repeat}
+.lockup__lens video,.lockup__lens img{width:100%;height:100%;object-fit:cover;display:block}
+
+.hero-lockup{width:min(880px,94%);margin:0 auto clamp(22px,3.4vw,46px)}
+
+/* staged hero reveal (head script arms the *-pending classes; intro.js clears them) */
+.hero-lockup .lockup__letters{transition:opacity .7s var(--ease)}
+.hero-lockup .lockup__lens{transition:opacity .55s var(--ease)}
+.hero-tagline{transition:opacity 1.1s var(--ease), transform 1.1s var(--ease)}
+html.lk-pending .hero-lockup .lockup__letters{opacity:0}
+html.lens-pending .hero-lockup .lockup__lens{opacity:0}
+html.tag-pending .hero-tagline{opacity:0;transform:translateY(20px)}
+
+/* intro overlay */
+#intro{display:none}
+html.intro-on #intro{display:block}
+html.intro-on,html.intro-on body{overflow:hidden}
+.intro{position:fixed;inset:0;z-index:200;background:var(--bg);
+  transition:opacity .6s var(--ease), background-color .6s var(--ease)}
+.intro.bg-out{background-color:transparent}
+.intro.is-out{opacity:0;pointer-events:none}
+.intro__stage{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;perspective:1400px}
+.intro__lens{position:relative;width:min(66vmin,560px);aspect-ratio:672.206/231.533;overflow:hidden;
+  transform-style:preserve-3d;will-change:transform,filter;backface-visibility:hidden;background:#000;
+  -webkit-mask:url(../assets/raka-portal.svg) center/contain no-repeat;
+  mask:url(../assets/raka-portal.svg) center/contain no-repeat}
+.intro__lens video{width:100%;height:100%;object-fit:cover;display:block}
+.intro__skip{position:fixed;bottom:22px;right:22px;z-index:201;
+  font-size:.74rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600;
+  color:var(--muted-2);background:var(--fill);padding:9px 16px;border-radius:999px;
+  transition:color .2s var(--ease), background .2s var(--ease), scale .15s var(--ease)}
+.intro__skip:hover{color:var(--ink);background:var(--fill-2)}
+.intro__skip:active{scale:.96}
+
+@media(prefers-reduced-motion:reduce){
+  #intro{display:none!important}
+  html.lk-pending .hero-lockup .lockup__letters,
+  html.lens-pending .hero-lockup .lockup__lens,
+  html.tag-pending .hero-tagline{opacity:1;transform:none}
 }
