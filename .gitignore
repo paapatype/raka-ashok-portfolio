@@ -6,3 +6,6 @@ __pycache__/
 # agent skills tooling (local dev only, not part of the deployed site)
 .agents/
 skills-lock.json
+
+# working doc, not deployed
+VIDEO-PORTAL-PROMPT.md
