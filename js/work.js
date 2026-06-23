@@ -4,8 +4,9 @@
   var el = document.querySelector("#work-list");
   if (!el) return;
   el.innerHTML = DATA.map(function (p) {
-    var thumb = (p.slides && p.slides[0] && p.slides[0].src) || "";
-    var img = thumb ? '<img src="' + thumb + '" alt="' + p.title + '" loading="lazy" decoding="async">' : "";
+    var thumb = "";
+    if (p.slides) { for (var i = 0; i < p.slides.length; i++) { if (p.slides[i] && p.slides[i].src) { thumb = p.slides[i].src; break; } } }
+    var img = thumb ? '<img src="' + thumb + '" alt="' + p.title + '" loading="lazy" decoding="async" onerror="this.style.display=\'none\'">' : "";
     return (
       '<a class="wtile reveal" href="project.html?slug=' + p.slug + '">' +
       '<span class="wtile__img">' + img + "</span>" +

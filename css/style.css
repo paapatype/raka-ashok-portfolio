@@ -632,15 +632,13 @@ html.hero-opening .hero__video{animation:heroOpen 900ms var(--ease) both}
 .navlink{font-size:.95rem;font-weight:500;color:var(--ink-2);letter-spacing:-.01em;white-space:nowrap;transition:color .2s var(--ease)}
 .navlink:hover{color:var(--ink)}
 .navlink.is-active{color:var(--ink);font-weight:600}
-#theme-toggle{width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;
-  color:var(--ink-2);background:none;border:0;cursor:pointer;
-  opacity:0;visibility:hidden;transform:scale(.85);pointer-events:none;
-  transition:opacity .25s var(--ease),transform .25s var(--ease),color .2s var(--ease)}
+#theme-toggle{width:34px;height:34px;display:none;align-items:center;justify-content:center;
+  color:var(--ink-2);background:none;border:0;cursor:pointer;transition:color .2s var(--ease)}
 #theme-toggle svg{display:block;width:18px;height:18px}
 #theme-toggle:hover{color:var(--ink)}
-.nav.is-scrolled #theme-toggle{opacity:1;visibility:visible;transform:none;pointer-events:auto}
-body[data-page="home"] .nav:not(.is-scrolled) #theme-toggle{color:#fff}
-@media(max-width:560px){.nav__links{gap:13px 16px}.navlink{font-size:.9rem}}
+.nav.is-scrolled #theme-toggle{display:inline-flex;animation:tgIn .3s var(--ease)}
+@keyframes tgIn{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:none}}
+@media(max-width:560px){.nav__links{flex-basis:100%;justify-content:flex-end;gap:14px 16px}.navlink{font-size:.88rem}}
 
 /* ---------- work/design tiles (thumbnail grid) ---------- */
 .wtiles{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(14px,2vw,26px)}
