@@ -4,12 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script>try{var t=localStorage.getItem("raka-theme")||(matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light");document.documentElement.setAttribute("data-theme",t);}catch(e){}</script>
-<title>Selected Worlds - Raka Ashok</title>
+<title>Design - Raka Ashok</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="css/style.css?v=11">
+<link rel="stylesheet" href="css/style.css?v=12">
 </head>
 <body data-page="work">
 
@@ -17,104 +17,32 @@
   <div class="nav__inner">
     <a class="nav__brand" href="index.html" aria-label="Raka Ashok"><span class="nav__logo"></span></a>
     <div class="nav__links">
-      <a class="pill" data-nav="work" href="work.html">Work</a>
-      <a class="pill" data-nav="posters" href="posters.html">Artworks</a>
-      <a class="pill" data-nav="about" href="about.html">About</a>
-      <a class="pill" data-nav="book" href="book.html">Book Now</a>
+      <a class="navlink" data-nav="music" href="music.html">Music</a>
+      <a class="navlink" data-nav="work" href="work.html">Design</a>
+      <a class="navlink" data-nav="about" href="about.html">About</a>
+      <a class="navlink" data-nav="book" href="book.html">Book Now</a>
     </div>
   </div>
 </nav>
 
 <header class="page-head container">
-  <h1 class="reveal">Selected Worlds.</h1>
-  <p class="lead reveal">A collection of brands, identities, experiences and experiments built across industries, cultures and mediums. Some were designed. Some were produced. Some were both.</p>
+  <h1 class="reveal">Design</h1>
+  <p class="lead reveal">Brand identities, visual systems and gig artwork - built across industries, cultures and mediums.</p>
 </header>
 
 <main class="container" style="padding-bottom:clamp(40px,7vw,90px)">
 
   <section class="worklist-group">
-    <span class="eyebrow reveal">Clients</span>
-    <div class="rows" id="work-list"></div>
+    <span class="eyebrow reveal">Selected work</span>
+    <div class="wtiles" id="work-list"></div>
   </section>
 
   <section class="worklist-group">
-    <span class="eyebrow reveal">Music</span>
-    <div class="rows">
-      <a class="row reveal" href="https://soundcloud.com/rakaashok" target="_blank" rel="noopener">
-        <span class="row__title">SoundCloud</span>
-        <span class="row__meta"><span class="yr">soundcloud.com/rakaashok</span><svg class="arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
-      </a>
-      <a class="row reveal" href="https://raajabeats.bandcamp.com" target="_blank" rel="noopener">
-        <span class="row__title">RAAJA Beats</span>
-        <span class="row__meta"><span class="yr">Bandcamp</span><svg class="arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
-      </a>
+    <div class="reveal" style="display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:18px">
+      <span class="eyebrow">Artworks</span>
+      <a class="link-line" href="posters.html">All artworks &rarr;</a>
     </div>
-  </section>
-
-  <section class="worklist-group">
-    <span class="eyebrow reveal">DJ Sets</span>
-    <div class="rows">
-      <a class="row reveal" href="https://on.soundcloud.com/gCxZFDzhPVhD7sQbA" target="_blank" rel="noopener">
-        <span class="row__title">RAKA ASHOK / RINSE FM x CHIPPY NONSTOP</span>
-        <span class="row__meta"><span class="yr">SoundCloud</span><svg class="arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
-      </a>
-      <a class="row reveal" href="https://on.soundcloud.com/ae4zK8g5uhGb5LLFA" target="_blank" rel="noopener">
-        <span class="row__title">RAKA ASHOK / RINSE FM x JAY CARDER</span>
-        <span class="row__meta"><span class="yr">SoundCloud</span><svg class="arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
-      </a>
-      <a class="row reveal" href="https://on.soundcloud.com/SwQcD4MPHniokV2d7" target="_blank" rel="noopener">
-        <span class="row__title">RAKA ASHOK / BOILER ROOM 2024</span>
-        <span class="row__meta"><span class="yr">SoundCloud</span><svg class="arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
-      </a>
-      <a class="row reveal" href="https://youtu.be/71pNGck-4cw" target="_blank" rel="noopener">
-        <span class="row__title">RAKA ASHOK / Honey Mustard 2026</span>
-        <span class="row__meta"><span class="yr">YouTube</span><svg class="arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
-      </a>
-      <a class="row reveal" href="https://youtu.be/4NB053q6LBg" target="_blank" rel="noopener">
-        <span class="row__title">RAKA ASHOK / KORAMANGALA SOCIAL / MAY 6 SET</span>
-        <span class="row__meta"><span class="yr">YouTube</span><svg class="arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
-      </a>
-      <a class="row reveal" href="https://www.youtube.com/watch?v=XZlwCOrKuPQ" target="_blank" rel="noopener">
-        <span class="row__title">BOXOUT WEDNESDAYS / AURO DELHI</span>
-        <span class="row__meta"><span class="yr">YouTube</span><svg class="arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
-      </a>
-    </div>
-  </section>
-
-  <section class="worklist-group">
-    <span class="eyebrow reveal">Mixes</span>
-    <div class="rows">
-      <a class="row reveal" href="https://www.mixcloud.com/raka-ashok/raka-bodega-003/" target="_blank" rel="noopener">
-        <span class="row__title">Tropical Bass / House</span>
-        <span class="row__meta"><span class="yr">Mixcloud</span><svg class="arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
-      </a>
-      <a class="row reveal" href="https://www.mixcloud.com/raka-ashok/raka-x-one-hundred-vol-3/" target="_blank" rel="noopener">
-        <span class="row__title">Hip-hop / Bass - Vol. 3</span>
-        <span class="row__meta"><span class="yr">Mixcloud</span><svg class="arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
-      </a>
-      <a class="row reveal" href="https://www.mixcloud.com/raka-ashok/raka-x-one-hundred-vol-2/" target="_blank" rel="noopener">
-        <span class="row__title">Hip-hop / Bass - Vol. 2</span>
-        <span class="row__meta"><span class="yr">Mixcloud</span><svg class="arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
-      </a>
-      <a class="row reveal" href="https://soundcloud.com/jaycarder/house-of-carder-x-wavlngth-with-raka-ashok-310123" target="_blank" rel="noopener">
-        <span class="row__title">Chill / Downtempo - House of Carder x Wavlngth</span>
-        <span class="row__meta"><span class="yr">SoundCloud</span><svg class="arr" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M8 7h9v9"/></svg></span>
-      </a>
-    </div>
-  </section>
-
-  <section class="worklist-group">
-    <span class="eyebrow reveal">Pictures</span>
-    <div class="rows">
-      <div class="row reveal" style="opacity:.7">
-        <span class="row__title">Album 1</span>
-        <span class="row__meta"><span class="yr">Drive link pending</span></span>
-      </div>
-      <div class="row reveal" style="opacity:.7">
-        <span class="row__title">Yung Raja × Raka Ashok</span>
-        <span class="row__meta"><span class="yr">Drive link pending</span></span>
-      </div>
-    </div>
+    <div class="strip" data-strip></div>
   </section>
 
   <section class="belt-section">
@@ -146,7 +74,8 @@
 
 <script src="js/data.js?v=3"></script>
 <script src="js/clients.js"></script>
-<script src="js/site.js?v=2"></script>
-<script src="js/work.js"></script>
+<script src="js/site.js?v=3"></script>
+<script src="js/work.js?v=2"></script>
+<script src="js/posters.js"></script>
 </body>
 </html>

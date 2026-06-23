@@ -127,7 +127,7 @@ p,.lead,figcaption,li,blockquote{text-wrap:pretty}
   background-color:var(--ink);
   -webkit-mask:url(../assets/raka-logo.svg) center/contain no-repeat;
   mask:url(../assets/raka-logo.svg) center/contain no-repeat}
-.nav__links{display:flex;gap:8px;flex-wrap:wrap}
+.nav__links{display:flex;align-items:center;justify-content:flex-end;gap:clamp(14px,2.2vw,30px);flex-wrap:wrap}
 .pill{
   padding:9px 16px;border-radius:var(--radius);
   background:var(--fill);color:var(--ink-2);
@@ -580,9 +580,8 @@ html.hero-intro .hero__frame{opacity:0;animation:heroFade 700ms var(--ease) 850m
 /* nav transparent over the hero (home, at top) */
 body[data-page="home"] .nav:not(.is-scrolled){background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none;border-color:transparent}
 body[data-page="home"] .nav:not(.is-scrolled) .nav__logo{background:#fff}
-body[data-page="home"] .nav:not(.is-scrolled) .pill{background:rgba(255,255,255,.16);color:#fff}
-body[data-page="home"] .nav:not(.is-scrolled) .pill:hover{background:rgba(255,255,255,.28)}
-body[data-page="home"] .nav:not(.is-scrolled) .pill.is-active{background:#fff;color:#0a0a0a}
+body[data-page="home"] .nav:not(.is-scrolled) .navlink{color:rgba(255,255,255,.85)}
+body[data-page="home"] .nav:not(.is-scrolled) .navlink:hover,body[data-page="home"] .nav:not(.is-scrolled) .navlink.is-active{color:#fff}
 
 @media(prefers-reduced-motion:reduce){
   html.hero-intro .hero__video{animation:none}
@@ -628,3 +627,29 @@ html.hero-opening .hero__video{animation:heroOpen 900ms var(--ease) both}
 @keyframes heroOpen{from{transform:scale(1.12)}to{transform:scale(1)}}
 
 @media(prefers-reduced-motion:reduce){#intro{display:none!important}}
+
+/* ---------- nav: plain-type links + theme toggle revealed on scroll ---------- */
+.navlink{font-size:.95rem;font-weight:500;color:var(--ink-2);letter-spacing:-.01em;white-space:nowrap;transition:color .2s var(--ease)}
+.navlink:hover{color:var(--ink)}
+.navlink.is-active{color:var(--ink);font-weight:600}
+#theme-toggle{width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;
+  color:var(--ink-2);background:none;border:0;cursor:pointer;
+  opacity:0;visibility:hidden;transform:scale(.85);pointer-events:none;
+  transition:opacity .25s var(--ease),transform .25s var(--ease),color .2s var(--ease)}
+#theme-toggle svg{display:block;width:18px;height:18px}
+#theme-toggle:hover{color:var(--ink)}
+.nav.is-scrolled #theme-toggle{opacity:1;visibility:visible;transform:none;pointer-events:auto}
+body[data-page="home"] .nav:not(.is-scrolled) #theme-toggle{color:#fff}
+@media(max-width:560px){.nav__links{gap:13px 16px}.navlink{font-size:.9rem}}
+
+/* ---------- work/design tiles (thumbnail grid) ---------- */
+.wtiles{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(14px,2vw,26px)}
+@media(min-width:760px){.wtiles{grid-template-columns:repeat(3,1fr)}}
+.wtile{display:block;color:inherit}
+.wtile__img{display:block;aspect-ratio:4/3;border-radius:14px;overflow:hidden;background:var(--bg-soft);outline:1px solid var(--img-line);outline-offset:-1px}
+.wtile__img img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.wtile:hover .wtile__img img{transform:scale(1.04)}
+.wtile__row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-top:12px}
+.wtile__title{font-size:1.05rem;font-weight:600;letter-spacing:-.01em}
+.wtile__yr{color:var(--muted);font-size:.9rem;font-variant-numeric:tabular-nums;flex:none}
+.wtile__role{display:block;color:var(--muted-2);font-size:.9rem;line-height:1.4;margin-top:3px}
