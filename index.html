@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="css/style.css?v=10">
+<link rel="stylesheet" href="css/style.css?v=11">
 </head>
 <body data-page="home">
 
@@ -28,10 +28,10 @@
 </nav>
 
 <header class="hero hero--video">
-  <div class="hero__bg"><video class="hero__video" muted loop playsinline preload="none"></video></div>
+  <div class="hero__bg"><video class="hero__video" autoplay muted loop playsinline preload="none"></video></div>
   <div class="hero__scrim" aria-hidden="true"></div>
   <div class="hero__frame" aria-hidden="true"></div>
-  <h1 class="hero-tagline">Local flavor. Global sound.<span class="tm">&trade;</span></h1>
+  <h1 class="hero-tagline"><span class="t-line">Local flavor.</span> <span class="t-line">Global sound.<span class="tm">&trade;</span></span></h1>
 </header>
 
 <section class="section container">
@@ -92,14 +92,14 @@
       <span class="lockup__lens" id="introO"></span>
     </div>
     <div class="intro__fly" id="introFly">
-      <video id="introVideo" muted loop playsinline preload="auto"></video>
+      <video id="introVideo" autoplay muted loop playsinline preload="auto"></video>
     </div>
   </div>
   <button class="intro__skip" id="introSkip" type="button">Skip</button>
 </div>
 
 <script src="js/site.js?v=2"></script>
-<script src="js/intro.js?v=4"></script>
+<script src="js/intro.js?v=5"></script>
 <script src="js/work.js"></script>
 <script src="js/posters.js"></script>
 </body>

@@ -32,9 +32,13 @@
       if (!arr.length) arr = POOL;
       return arr[Math.floor(Math.random() * arr.length)];
     }
-    function play(v) { var p; try { p = v.play(); } catch (e) {} if (p && p.catch) p.catch(function () {}); }
+    function play(v) { if (!v) return; try { v.muted = true; } catch (e) {} var p; try { p = v.play(); } catch (e) {} if (p && p.catch) p.catch(function () {}); }
     function loadV(v, s) { if (v.dataset.on) return; v.src = s; v.dataset.on = "1"; try { v.load(); } catch (e) {} }
     function revealTagline() { root.classList.remove("tag-pending"); }
+
+    // iOS / Low-Power autoplay fallback: kick playback on the first user gesture
+    function kick() { if (heroVideo) play(heroVideo); var iv2 = document.getElementById("introVideo"); if (iv2) play(iv2); }
+    ["touchstart", "pointerdown", "scroll"].forEach(function (ev) { addEventListener(ev, function h() { kick(); removeEventListener(ev, h); }, { passive: true }); });
 
     function heroPlayback(pick) {
       heroVideo.setAttribute("poster", pick.poster);

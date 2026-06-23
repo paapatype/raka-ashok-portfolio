@@ -3,6 +3,8 @@
    Swiss / International Typographic system · black & white · Inter
    ============================================================ */
 
+@font-face{font-family:"Hubot SemiCond";font-weight:300;font-style:normal;font-display:swap;
+  src:url("../assets/fonts/HubotSans_SemiCondensed-Light.ttf") format("truetype")}
 @font-face{font-family:"Hubot SemiCond";font-weight:500;font-style:normal;font-display:swap;
   src:url("../assets/fonts/HubotSans_SemiCondensed-Medium.ttf") format("truetype")}
 @font-face{font-family:"Hubot SemiCond";font-weight:600;font-style:normal;font-display:swap;
@@ -437,10 +439,12 @@ p,.lead,figcaption,li,blockquote{text-wrap:pretty}
 .hero .lead{margin-top:clamp(20px,3vw,38px);max-width:36ch}
 .hero>.reveal:nth-child(2){transition-delay:.08s}
 .hero>.reveal:nth-child(3){transition-delay:.16s}
-.hero-tagline{font-family:"Hubot SemiCond","Inter",system-ui,sans-serif;font-weight:500;
+.hero-tagline{font-family:"Hubot SemiCond","Inter",system-ui,sans-serif;font-weight:300;
   text-transform:uppercase;font-size:clamp(2.6rem,8.5vw,6.4rem);line-height:.96;
   letter-spacing:-.005em;color:var(--ink);text-wrap:balance}
-.hero-tagline .tm{font-size:.26em;font-weight:500;vertical-align:super;letter-spacing:.02em;margin-left:.04em}
+.hero-tagline .tm{font-size:.26em;font-weight:300;vertical-align:super;margin-left:-.06em}
+.hero-tagline .t-line{display:inline}
+@media(max-width:768px){.hero-tagline .t-line{display:block}}
 .hero-tagline.reveal{opacity:0;transform:translateY(20px);
   transition:opacity 1.1s var(--ease) .35s, transform 1.1s var(--ease) .35s}
 .hero-tagline.reveal.in{opacity:1;transform:none}
