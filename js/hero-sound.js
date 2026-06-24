@@ -25,7 +25,8 @@
     try {
       widget.getCurrentSound(function (snd) {
         if (snd && snd.waveform_url) {
-          fetch(snd.waveform_url).then(function (r) { return r.json(); }).then(function (d) {
+          var wf = snd.waveform_url.replace(/\.png(\?|$)/, ".json$1"); // need the JSON samples, not the PNG image
+          fetch(wf).then(function (r) { return r.json(); }).then(function (d) {
             if (d && d.samples && d.samples.length) { samples = d.samples; sampMax = (d.height || Math.max.apply(null, d.samples)) || 1; }
           }).catch(function () {}); // CORS/parse fail -> reactive motion falls back to the beat pulse
         }
