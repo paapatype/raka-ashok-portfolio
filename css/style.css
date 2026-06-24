@@ -655,19 +655,18 @@ html.hero-opening .hero__video{animation:heroOpen 900ms var(--ease) both}
 .wtile__role{display:block;color:var(--muted-2);font-size:.9rem;line-height:1.4;margin-top:3px}
 
 /* ---------- tagline bounce to the beat (variable weight), only while hero sound is on ---------- */
-@keyframes bpmBounce{0%,100%{font-variation-settings:"wght" 300;transform:scale(.985)}50%{font-variation-settings:"wght" 820;transform:scale(1.05)}}
-html.sound-on .hero-tagline{animation:bpmBounce .4138s ease-in-out infinite;will-change:font-variation-settings,transform;transform-origin:center} /* .4138s = 145 BPM */
-@media(prefers-reduced-motion:reduce){html.sound-on .hero-tagline{animation:none}}
+/* tagline reacts to the music (driven per animation frame by js/hero-sound.js while unmuted) */
+html.sound-on .hero-tagline{will-change:font-variation-settings,transform;transform-origin:center}
 
 /* ---------- hero sound toggle ---------- */
-.hero-sound{position:relative;z-index:5;display:inline-flex;align-items:center;gap:9px;margin-top:clamp(22px,3vw,40px);
-  padding:9px 16px 9px 14px;border-radius:999px;background:rgba(255,255,255,.13);color:#fff;
-  font-size:.74rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;
+.hero-sound{position:absolute;left:50%;bottom:clamp(46px,11vh,120px);transform:translateX(-50%);z-index:5;
+  width:46px;height:46px;display:inline-flex;align-items:center;justify-content:center;border-radius:50%;
+  background:rgba(255,255,255,.14);color:#fff;cursor:pointer;
   -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
   transition:background .2s var(--ease),scale .15s var(--ease)}
-.hero-sound:hover{background:rgba(255,255,255,.22)}
-.hero-sound:active{scale:.96}
-.hero-sound svg{display:block;width:18px;height:18px}
+.hero-sound:hover{background:rgba(255,255,255,.24)}
+.hero-sound:active{scale:.93}
+.hero-sound svg{display:block;width:20px;height:20px}
 .hero-sound .ico-on{display:none}
 .hero-sound.is-on{background:rgba(255,255,255,.24)}
 .hero-sound.is-on .ico-off{display:none}
