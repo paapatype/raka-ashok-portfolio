@@ -60,12 +60,9 @@
     url = url || pick();
     announce(url);
     widget.load(url, { auto_play: true, callback: function () {
-      widget.getDuration(function (ms) {
-        durMs = ms || 0;
-        try { if (ms) widget.seekTo(Math.floor(ms * 0.5)); } catch (e) {}  // start from the HALFWAY point
-        widget.setVolume(muted ? 0 : 100);
-        widget.play();
-      });
+      widget.getDuration(function (ms) { durMs = ms || 0; }); // keep duration for the reactivity mapping
+      widget.setVolume(muted ? 0 : 100);
+      widget.play();                                          // from the start - no mid-track buffering delay
       loadWaveform();
     } });
   }
@@ -129,8 +126,8 @@
     started = true; muted = false;
     try {
       widget.setVolume(100);
-      if (primed) { if (durMs) widget.seekTo(Math.floor(durMs * 0.5)); widget.play(); } // play the PRE-LOADED track straight from the gesture (iOS-safe)
-      else { widget.play(); loadTrack(); }                                              // not primed yet -> best-effort
+      if (primed) { widget.play(); }       // play the PRE-LOADED track from its start - instant (no mid-track buffering)
+      else { widget.play(); loadTrack(); }  // not primed yet -> best-effort
     } catch (e) {}
   }
 
