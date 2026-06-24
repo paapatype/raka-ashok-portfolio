@@ -640,7 +640,7 @@ html.hero-opening .hero__video{animation:heroOpen 900ms var(--ease) both}
 #theme-toggle:hover{color:var(--ink)}
 .nav.is-scrolled #theme-toggle{display:inline-flex;animation:tgIn .3s var(--ease)}
 @keyframes tgIn{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:none}}
-@media(max-width:560px){.nav__links{flex-basis:100%;justify-content:flex-end;gap:14px 16px}.navlink{font-size:.88rem}}
+@media(max-width:560px){.nav__inner{padding-left:18px;padding-right:18px}.nav__links{gap:14px}.navlink{font-size:.82rem;letter-spacing:-.005em}.nav__links [data-nav="book"]{display:none}}
 
 /* ---------- work/design tiles (thumbnail grid) ---------- */
 .wtiles{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(14px,2vw,26px)}
