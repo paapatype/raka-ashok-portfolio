@@ -3,6 +3,8 @@
    Swiss / International Typographic system · black & white · Inter
    ============================================================ */
 
+@font-face{font-family:"Hubot Sans VF";font-weight:200 900;font-style:normal;font-display:swap;
+  src:url("../assets/fonts/HubotSansVF-subset.woff2") format("woff2")}
 @font-face{font-family:"Hubot SemiCond";font-weight:300;font-style:normal;font-display:swap;
   src:url("../assets/fonts/HubotSans_SemiCondensed-Light.ttf") format("truetype")}
 @font-face{font-family:"Hubot SemiCond";font-weight:500;font-style:normal;font-display:swap;
@@ -439,7 +441,7 @@ p,.lead,figcaption,li,blockquote{text-wrap:pretty}
 .hero .lead{margin-top:clamp(20px,3vw,38px);max-width:36ch}
 .hero>.reveal:nth-child(2){transition-delay:.08s}
 .hero>.reveal:nth-child(3){transition-delay:.16s}
-.hero-tagline{font-family:"Hubot SemiCond","Inter",system-ui,sans-serif;font-weight:300;
+.hero-tagline{font-family:"Hubot Sans VF","Hubot SemiCond","Inter",system-ui,sans-serif;font-weight:300;font-variation-settings:"wght" 300;
   text-transform:uppercase;font-size:clamp(2.6rem,8.5vw,6.4rem);line-height:.96;
   letter-spacing:-.005em;color:var(--ink);text-wrap:balance}
 .hero-tagline .tm{font-size:.26em;font-weight:300;vertical-align:super;margin-left:-.06em}
@@ -651,3 +653,22 @@ html.hero-opening .hero__video{animation:heroOpen 900ms var(--ease) both}
 .wtile__title{font-size:1.05rem;font-weight:600;letter-spacing:-.01em}
 .wtile__yr{color:var(--muted);font-size:.9rem;font-variant-numeric:tabular-nums;flex:none}
 .wtile__role{display:block;color:var(--muted-2);font-size:.9rem;line-height:1.4;margin-top:3px}
+
+/* ---------- tagline bounce to the beat (variable weight), only while hero sound is on ---------- */
+@keyframes bpmBounce{0%,100%{font-variation-settings:"wght" 300;transform:scale(.985)}50%{font-variation-settings:"wght" 820;transform:scale(1.05)}}
+html.sound-on .hero-tagline{animation:bpmBounce .4138s ease-in-out infinite;will-change:font-variation-settings,transform;transform-origin:center} /* .4138s = 145 BPM */
+@media(prefers-reduced-motion:reduce){html.sound-on .hero-tagline{animation:none}}
+
+/* ---------- hero sound toggle ---------- */
+.hero-sound{position:relative;z-index:5;display:inline-flex;align-items:center;gap:9px;margin-top:clamp(22px,3vw,40px);
+  padding:9px 16px 9px 14px;border-radius:999px;background:rgba(255,255,255,.13);color:#fff;
+  font-size:.74rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+  transition:background .2s var(--ease),scale .15s var(--ease)}
+.hero-sound:hover{background:rgba(255,255,255,.22)}
+.hero-sound:active{scale:.96}
+.hero-sound svg{display:block;width:18px;height:18px}
+.hero-sound .ico-on{display:none}
+.hero-sound.is-on{background:rgba(255,255,255,.24)}
+.hero-sound.is-on .ico-off{display:none}
+.hero-sound.is-on .ico-on{display:block}
