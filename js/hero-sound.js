@@ -1,8 +1,8 @@
-/* RAKA ASHOK - hero sound: tap to stream a SoundCloud track from its HALFWAY point.
-   Icon-only mute/unmute (never pauses); auto-advances. While unmuted, the tagline REACTS to the music -
-   the track's waveform amplitude drives the variable font weight + scale.
-   PER-SONG reactivity: each track can carry its own config via window.RAKA_REACT_MAP (keyed by track url),
-   with a "_default" fallback for untuned tracks. Tune them in tools/tagline-tuner.html. */
+/* RAKA ASHOK - hero sound: tap to stream a SoundCloud track. Icon-only mute/unmute (never pauses);
+   auto-advances. While unmuted, the tagline REACTS to the music (per-song config via RAKA_REACT_MAP).
+   iOS note: this mirrors the (working) Music page - a FULL-SIZE iframe (just translated off-screen) and
+   a plain widget.load(url,{auto_play:true}) fired straight from the tap. A 1px/hidden iframe or a
+   deferred play() both get blocked by iOS Safari. */
 (function () {
   "use strict";
   var btn = document.getElementById("hero-sound");
@@ -15,21 +15,20 @@
   var tracks = LIST.map(function (t) { return t.url; });
   if (!tracks.length || typeof SC === "undefined" || !SC.Widget) { btn.style.display = "none"; return; }
 
-  // ---- per-song reactive config ----
-  // target = minWeight + min(1,(amp*gain)^curve) * (maxWeight-minWeight); level eases by attack/release.
+  // ---- per-song reactive config (shared with the tuner via window.RAKA_REACT_MAP) ----
   var DEFAULT = { gain: 1, minWeight: 300, maxWeight: 880, curve: 1.7, attack: 0.55, release: 0.14, scaleAmt: 0.055, gate: 0 };
-  function clone(o) { var r = {}; for (var k in DEFAULT) r[k] = (o && o[k] != null) ? o[k] : DEFAULT[k]; return r; }
+  function cloneCfg(o) { var r = {}; for (var k in DEFAULT) r[k] = (o && o[k] != null) ? o[k] : DEFAULT[k]; return r; }
   var MAP = window.RAKA_REACT_MAP || {};
-  if (!MAP._default) MAP._default = clone(DEFAULT);
+  if (!MAP._default) MAP._default = cloneCfg(DEFAULT);
   window.RAKA_REACT_MAP = MAP;
-  var REACT = window.RAKA_REACT || clone(MAP._default);   // ACTIVE config - a STABLE object the frame loop reads
+  var REACT = window.RAKA_REACT || cloneCfg(MAP._default);
   window.RAKA_REACT = REACT;
   function applyConfig(url) { var c = MAP[url] || MAP._default || DEFAULT; for (var k in DEFAULT) REACT[k] = (c[k] != null ? c[k] : DEFAULT[k]); }
   function titleFor(url) { for (var i = 0; i < LIST.length; i++) if (LIST[i].url === url) return LIST[i].title || ""; return ""; }
   function idxOf(url) { for (var i = 0; i < LIST.length; i++) if (LIST[i].url === url) return i; return -1; }
 
   var widget = SC.Widget(iframe);
-  var started = false, muted = false, lastIdx = -1, playing = false, primed = false;
+  var started = false, muted = false, lastIdx = -1, playing = false;
   var samples = null, sampMax = 1, relPos = 0, relAt = 0, durMs = 0, level = REACT.minWeight, raf = 0;
   function now() { return (window.performance && performance.now) ? performance.now() : Date.now(); }
 
@@ -56,15 +55,19 @@
     applyConfig(url);                                            // swap the active config to this track's
     if (typeof window.RAKA_ON_TRACK === "function") { try { window.RAKA_ON_TRACK(url, window.RAKA_TRACK); } catch (e) {} }
   }
+
+  // mirror the Music page: load(url,{auto_play:true}) straight from the gesture - the iOS-safe path
   function loadTrack(url) {
     url = url || pick();
     announce(url);
-    widget.load(url, { auto_play: true, callback: function () {
-      widget.getDuration(function (ms) { durMs = ms || 0; }); // keep duration for the reactivity mapping
-      widget.setVolume(muted ? 0 : 100);
-      widget.play();                                          // from the start - no mid-track buffering delay
-      loadWaveform();
-    } });
+    widget.load(url, {
+      auto_play: true, visual: false, hide_related: true, show_comments: false, show_teaser: false,
+      callback: function () {
+        widget.setVolume(muted ? 0 : 100);
+        widget.getDuration(function (ms) { durMs = ms || 0; }); // for the reactivity position mapping
+        loadWaveform();
+      }
+    });
   }
 
   widget.bind(SC.Widget.Events.PLAY, function () { playing = true; });
@@ -75,17 +78,6 @@
   });
   widget.bind(SC.Widget.Events.FINISH, function () { if (started) loadTrack(); });           // continuous
   if (SC.Widget.Events.ERROR) widget.bind(SC.Widget.Events.ERROR, function () { if (started) loadTrack(); });
-
-  // iOS-safe priming: pre-load a random track (NOT playing) so the very first gesture only has to PLAY it.
-  // Calling widget.load() *inside* the gesture defers the actual play out of the gesture -> iOS blocks audio.
-  widget.bind(SC.Widget.Events.READY, function () {
-    if (primed || started) return;
-    var u = pick();
-    widget.load(u, { auto_play: false, callback: function () {
-      widget.getDuration(function (ms) { durMs = ms || 0; });
-      announce(u); loadWaveform(); primed = true;
-    } });
-  });
 
   function frame() {
     if (!(started && !muted) || reduce) { raf = 0; return; }
@@ -120,25 +112,15 @@
     root.classList.toggle("sound-on", on);
     if (on) startReact(); else stopReact();
   }
-  function ensureStarted() { if (!started) { started = true; muted = false; try { widget.setVolume(100); widget.play(); } catch (e) {} } } // iOS: play() in the gesture
-
-  function startFirst() {
-    started = true; muted = false;
-    try {
-      widget.setVolume(100);
-      if (primed) { widget.play(); }       // play the PRE-LOADED track from its start - instant (no mid-track buffering)
-      else { widget.play(); loadTrack(); }  // not primed yet -> best-effort
-    } catch (e) {}
-  }
 
   btn.addEventListener("click", function () {
-    if (!started) { startFirst(); }                              // first tap = play the pre-loaded random track from halfway
-    else { muted = !muted; widget.setVolume(muted ? 0 : 100); }  // mute / unmute only - never pauses
+    if (!started) { started = true; muted = false; loadTrack(); }  // first tap: load + autoplay straight from the gesture
+    else { muted = !muted; widget.setVolume(muted ? 0 : 100); }    // mute / unmute only - never pauses
     paint();
   });
 
-  window.RAKA_NEXT = function () { ensureStarted(); loadTrack(); paint(); };                       // skip to a random track
-  window.RAKA_PLAY = function (url) { if (!url) return; ensureStarted(); loadTrack(url); paint(); }; // play a SPECIFIC track
+  window.RAKA_NEXT = function () { started = true; muted = false; loadTrack(); paint(); };                       // random
+  window.RAKA_PLAY = function (url) { if (!url) return; started = true; muted = false; loadTrack(url); paint(); }; // specific track
 
   paint();
 })();
