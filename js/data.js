@@ -6,6 +6,7 @@ window.RAKA_DATA = {
       "title": "Saras Co",
       "year": "2024",
       "role": "Brand identity & visual language",
+      "thumb": "assets/projects/saras-co/02.jpg",
       "descriptor": "A Bombay music & events company touring world-class live acts across India.",
       "intro": "When we set out to build Saras Co's identity, one thing mattered above all: a mark that is memorable, robust and built to last - one that scales and travels across any medium effortlessly. The answer drew on iconic 80s record-label iconography and a brutalist edge.",
       "slides": [
@@ -58,6 +59,7 @@ window.RAKA_DATA = {
       "title": "Unboxing BLR",
       "year": "2024",
       "role": "Brand guidelines & identity system",
+      "thumb": "assets/projects/unboxing-blr/14.jpg",
       "descriptor": "A participative, volunteer-driven project crafting a new brand narrative for Bangalore.",
       "intro": "Bangalore has quietly become a multifaceted global city, yet its story has never been told as well as it deserves. Unboxing BLR is a volunteer-driven effort to craft that narrative across many media - and this is the identity system that holds it all together.",
       "slides": [
@@ -200,6 +202,7 @@ window.RAKA_DATA = {
       "title": "Roma",
       "year": "2024",
       "role": "Brand identity & visual system",
+      "thumb": "assets/projects/roma/22.jpg",
       "descriptor": "An authentic, non-traditional Italian deli in Bangalore.",
       "intro": "ROMA Italian Deli - founded by Prathap and Chef Rajath - skips the usual pizzas and pastas for high-quality, globally imported ingredients. The identity had to feel just as authentic and unapologetic: a bold custom wordmark, a sun-and-tomato palette pulled straight from Italy, and a pattern language that runs from packaging to signage. Feeling Italian today?",
       "slides": [
@@ -346,8 +349,9 @@ window.RAKA_DATA = {
     {
       "slug": "the-humming-tree",
       "title": "The Humming Tree",
-      "year": "2023",
+      "year": "2026",
       "role": "Event identities & campaign design",
+      "thumb": "assets/projects/the-humming-tree/flf-insowmya.jpg",
       "descriptor": "Event identities for one of Bangalore's favourite music venues.",
       "intro": "The Humming Tree is a Bangalore institution - so its nights needed identities with as much personality as the room. A family of sub-brands, each clever, concise and unmistakably THT.",
       "kind": "grouped",

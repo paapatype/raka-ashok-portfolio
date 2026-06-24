@@ -10,3 +10,6 @@ skills-lock.json
 # working docs, not deployed
 VIDEO-PORTAL-PROMPT.md
 VIDEO-PORTAL-HANDOFF.md
+
+# dev-only tuning tool (not deployed)
+tools/
