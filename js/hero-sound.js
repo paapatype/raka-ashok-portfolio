@@ -29,7 +29,7 @@
   function idxOf(url) { for (var i = 0; i < LIST.length; i++) if (LIST[i].url === url) return i; return -1; }
 
   var widget = SC.Widget(iframe);
-  var started = false, muted = false, lastIdx = -1, playing = false;
+  var started = false, muted = false, lastIdx = -1, playing = false, primed = false;
   var samples = null, sampMax = 1, relPos = 0, relAt = 0, durMs = 0, level = REACT.minWeight, raf = 0;
   function now() { return (window.performance && performance.now) ? performance.now() : Date.now(); }
 
@@ -79,6 +79,17 @@
   widget.bind(SC.Widget.Events.FINISH, function () { if (started) loadTrack(); });           // continuous
   if (SC.Widget.Events.ERROR) widget.bind(SC.Widget.Events.ERROR, function () { if (started) loadTrack(); });
 
+  // iOS-safe priming: pre-load a random track (NOT playing) so the very first gesture only has to PLAY it.
+  // Calling widget.load() *inside* the gesture defers the actual play out of the gesture -> iOS blocks audio.
+  widget.bind(SC.Widget.Events.READY, function () {
+    if (primed || started) return;
+    var u = pick();
+    widget.load(u, { auto_play: false, callback: function () {
+      widget.getDuration(function (ms) { durMs = ms || 0; });
+      announce(u); loadWaveform(); primed = true;
+    } });
+  });
+
   function frame() {
     if (!(started && !muted) || reduce) { raf = 0; return; }
     var R = REACT, span = (R.maxWeight - R.minWeight) || 1, target, amp = 0, mode;
@@ -114,8 +125,17 @@
   }
   function ensureStarted() { if (!started) { started = true; muted = false; try { widget.setVolume(100); widget.play(); } catch (e) {} } } // iOS: play() in the gesture
 
+  function startFirst() {
+    started = true; muted = false;
+    try {
+      widget.setVolume(100);
+      if (primed) { if (durMs) widget.seekTo(Math.floor(durMs * 0.5)); widget.play(); } // play the PRE-LOADED track straight from the gesture (iOS-safe)
+      else { widget.play(); loadTrack(); }                                              // not primed yet -> best-effort
+    } catch (e) {}
+  }
+
   btn.addEventListener("click", function () {
-    if (!started) { ensureStarted(); loadTrack(); }              // first click = start a random track from halfway
+    if (!started) { startFirst(); }                              // first tap = play the pre-loaded random track from halfway
     else { muted = !muted; widget.setVolume(muted ? 0 : 100); }  // mute / unmute only - never pauses
     paint();
   });
