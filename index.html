@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="css/style.css?v=26">
+<link rel="stylesheet" href="css/style.css?v=27">
 </head>
 <body data-page="home">
 
@@ -48,13 +48,13 @@
     <div class="mf-label reveal"><span class="eyebrow">DJ Sets</span><span class="mf-rule"></span></div>
     <div class="setgrid">
       <a class="setcard reveal" href="https://youtu.be/71pNGck-4cw" target="_blank" rel="noopener" data-yt="71pNGck-4cw" aria-label="RAKA ASHOK — Honey Mustard Party (BLR IND, 25 Jan 2026) — watch on YouTube">
-        <div class="setcard__media"><img src="assets/sets/honey-mustard.jpg" alt="RAKA ASHOK — Honey Mustard Party, BLR IND, 25 Jan 2026" loading="lazy" decoding="async"></div>
+        <div class="setcard__media"><img src="assets/sets/honey-mustard.jpg?v=2" alt="RAKA ASHOK — Honey Mustard Party, BLR IND, 25 Jan 2026" loading="lazy" decoding="async"></div>
       </a>
       <a class="setcard reveal" href="https://youtu.be/4NB053q6LBg" target="_blank" rel="noopener" data-yt="4NB053q6LBg" aria-label="RAKA ASHOK — Bangalore, 06 May 2023 — watch on YouTube">
-        <div class="setcard__media"><img src="assets/sets/bangalore.jpg" alt="RAKA ASHOK — Bangalore, 06 May 2023" loading="lazy" decoding="async"></div>
+        <div class="setcard__media"><img src="assets/sets/bangalore.jpg?v=2" alt="RAKA ASHOK — Bangalore, 06 May 2023" loading="lazy" decoding="async"></div>
       </a>
       <a class="setcard reveal" href="https://www.youtube.com/watch?v=XZlwCOrKuPQ" target="_blank" rel="noopener" data-yt="XZlwCOrKuPQ" aria-label="#250 RAKA ASHOK — watch on YouTube">
-        <div class="setcard__media"><img src="assets/sets/raka-250.jpg" alt="#250 RAKA ASHOK" loading="lazy" decoding="async"></div>
+        <div class="setcard__media"><img src="assets/sets/raka-250.jpg?v=2" alt="#250 RAKA ASHOK" loading="lazy" decoding="async"></div>
       </a>
     </div>
   </div>
@@ -108,12 +108,15 @@
 
 <footer class="footer">
   <div class="container footer__inner">
-    <div class="footer__cta reveal">
-      <a class="btn" href="book.html">Book the artist <span class="arr">&rarr;</span></a>
+    <div class="footer__top reveal">
+      <a class="footer__lockup" href="index.html" aria-label="Raka Ashok">
+        <span class="lockup">
+          <span class="lockup__letters"></span>
+          <span class="lockup__lens"><video autoplay muted loop playsinline preload="metadata" poster="assets/video/raka-stage-poster.jpg"><source src="assets/video/raka-stage-sm.mp4" type="video/mp4"></video></span>
+        </span>
+      </a>
+      <a class="footer__book" href="book.html">Book the artist <span class="arr">&rarr;</span></a>
     </div>
-  <div class="footer__sign-wrap reveal">
-    <span class="footer__sign" role="img" aria-label="Raka Ashok"></span>
-  </div>
     <div class="footer__bottom">
       <span>© <span data-year></span> Raka Ashok · Bangalore</span>
       <div class="footer__links">
@@ -146,12 +149,19 @@
 <script src="js/work.js?v=4"></script>
 <script src="js/posters.js"></script>
 <script src="js/sets-hover.js?v=2"></script>
-<iframe id="hero-sc" title="Raka Ashok audio" allow="autoplay" tabindex="-1" aria-hidden="true"
-  style="position:fixed;left:0;right:0;bottom:0;width:100%;height:120px;border:0;pointer-events:none;transform:translateY(125%)"
-  src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Frakaashok&visual=false&auto_play=false&buying=false&sharing=false&download=false&show_artwork=false&show_comments=false&show_playcount=false&show_user=false"></iframe>
+<!-- hero audio: EXACT same player structure as the Music page (which plays on iOS).
+     Hidden (translated down) on desktop; on phones it slides up when sound starts -
+     iOS only starts audio in a widget that is actually visible on screen. -->
+<div class="player hero-player" id="hero-player" aria-label="Music player">
+  <div class="player__inner">
+    <iframe id="hero-sc" allow="autoplay" frameborder="no" title="SoundCloud player"
+      src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Frakaashok&auto_play=false&visual=false&hide_related=true&show_comments=false&show_teaser=false&color=%230a0a0a"></iframe>
+  </div>
+</div>
 <script src="js/music.js"></script>
 <script src="https://w.soundcloud.com/player/api.js"></script>
 <script src="js/react-map.js?v=2"></script>
-<script src="js/hero-sound.js?v=10"></script>
+<script src="js/hero-sound.js?v=11"></script>
+<script src="js/agentation-dev.js?v=1"></script><!-- dev-only (localhost); trialling agentation -->
 </body>
 </html>

@@ -13,3 +13,6 @@ VIDEO-PORTAL-HANDOFF.md
 
 # dev-only tuning tool (not deployed)
 tools/
+
+# npm (agentation dev tool - keep out of the static deploy)
+node_modules/

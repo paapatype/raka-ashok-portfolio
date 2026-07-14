@@ -424,6 +424,18 @@ p,.lead,figcaption,li,blockquote{text-wrap:pretty}
   -webkit-mask:url(../assets/raka-logo.svg) center/contain no-repeat;
   mask:url(../assets/raka-logo.svg) center/contain no-repeat}
 
+/* footer top row: logo (video plays in the O) left, book link right */
+.footer__top{display:flex;align-items:center;justify-content:space-between;gap:clamp(24px,5vw,64px);flex-wrap:wrap;
+  padding:clamp(18px,3.5vw,40px) 0 clamp(20px,3.5vw,44px)}
+.footer__lockup{display:block;width:clamp(240px,44vw,540px);max-width:100%}
+.footer__lockup .lockup{width:100%}
+.footer__book{display:inline-flex;align-items:center;gap:.5em;color:var(--ink);font-weight:600;
+  font-size:clamp(1.05rem,2vw,1.5rem);letter-spacing:-.01em;white-space:nowrap;transition:opacity .25s var(--ease)}
+.footer__book:hover{opacity:.6}
+.footer__book .arr{transition:transform .3s var(--ease)}
+.footer__book:hover .arr{transform:translateX(5px)}
+@media(max-width:600px){.footer__top{gap:18px}.footer__lockup{width:min(100%,340px)}}
+
 /* ---------- scroll reveal ---------- */
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
 .reveal.in{opacity:1;transform:none}
@@ -560,9 +572,9 @@ body.player-open{padding-bottom:148px}
 .hero__scrim{position:absolute;inset:0;z-index:2;pointer-events:none;
   background:linear-gradient(180deg,rgba(0,0,0,.5) 0%,rgba(0,0,0,.12) 26%,rgba(0,0,0,.12) 60%,rgba(0,0,0,.62) 100%),
              radial-gradient(130% 90% at 50% 42%,rgba(0,0,0,0) 38%,rgba(0,0,0,.42) 100%)}
-.hero__frame{position:absolute;inset:clamp(16px,3vw,40px);z-index:3;pointer-events:none}
+.hero__frame{position:absolute;top:clamp(14px,2.6vw,30px);right:clamp(16px,3vw,40px);bottom:clamp(24px,4.4vw,54px);left:clamp(16px,3vw,40px);z-index:3;pointer-events:none}
 .hero__frame::before,.hero__frame::after{content:"";position:absolute;
-  width:clamp(26px,3.6vw,54px);height:clamp(26px,3.6vw,54px);border:2px solid rgba(255,255,255,.92)}
+  width:clamp(24px,3.3vw,50px);height:clamp(24px,3.3vw,50px);border:1.5px solid rgba(255,255,255,.9)}
 .hero__frame::before{top:0;right:0;border-left:0;border-bottom:0}
 .hero__frame::after{bottom:0;left:0;border-right:0;border-top:0}
 .hero--video .hero-tagline{position:relative;z-index:4;color:#fff;max-width:none;

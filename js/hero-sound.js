@@ -113,14 +113,21 @@
     if (on) startReact(); else stopReact();
   }
 
+  // iOS/Android only start audio in a widget that is actually VISIBLE - this is precisely why the
+  // Music page works (its bar slides up before load). So on touch devices, slide the player bar up
+  // when sound starts. Desktop keeps the hidden widget (verified working).
+  var bar = document.getElementById("hero-player");
+  var coarse = matchMedia("(hover: none), (pointer: coarse)").matches;
+  function showBar() { if (bar && coarse) { bar.classList.add("show"); document.body.classList.add("player-open"); } }
+
   btn.addEventListener("click", function () {
-    if (!started) { started = true; muted = false; loadTrack(); }  // first tap: load + autoplay straight from the gesture
-    else { muted = !muted; widget.setVolume(muted ? 0 : 100); }    // mute / unmute only - never pauses
+    if (!started) { started = true; muted = false; showBar(); loadTrack(); }  // first tap: show widget + load + autoplay, all in the gesture
+    else { muted = !muted; widget.setVolume(muted ? 0 : 100); }               // mute / unmute only - never pauses
     paint();
   });
 
-  window.RAKA_NEXT = function () { started = true; muted = false; loadTrack(); paint(); };                       // random
-  window.RAKA_PLAY = function (url) { if (!url) return; started = true; muted = false; loadTrack(url); paint(); }; // specific track
+  window.RAKA_NEXT = function () { started = true; muted = false; showBar(); loadTrack(); paint(); };                       // random
+  window.RAKA_PLAY = function (url) { if (!url) return; started = true; muted = false; showBar(); loadTrack(url); paint(); }; // specific track
 
   paint();
 })();
