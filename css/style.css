@@ -98,6 +98,12 @@ button{font:inherit;color:inherit;cursor:pointer;background:none;border:none}
 .display{font-size:var(--fs-display);font-weight:700;line-height:.96;letter-spacing:-.035em}
 h1,.h1{font-size:var(--fs-h1);font-weight:700;line-height:1.02;letter-spacing:-.03em}
 h2,.h2{font-size:var(--fs-h2);font-weight:650;line-height:1.08;letter-spacing:-.02em}
+/* Hubot Sans (the hero-tagline typeface) for all display headings site-wide; body copy stays Inter */
+h1,.h1,h2,.h2,h3,.h3,.display,.eyebrow{font-family:"Hubot Sans VF","Hubot SemiCond","Inter",system-ui,sans-serif}
+/* graceful, slower dark<->light crossfade - only while toggling (class added by site.js), never on hover */
+html.theme-anim,html.theme-anim *,html.theme-anim *::before,html.theme-anim *::after{
+  transition:background-color .7s var(--ease),color .7s var(--ease),border-color .7s var(--ease),
+    fill .7s var(--ease),stroke .7s var(--ease),box-shadow .7s var(--ease),outline-color .7s var(--ease) !important}
 .lead{font-size:var(--fs-lead);line-height:1.32;color:var(--muted-2);font-weight:420;letter-spacing:-.015em;max-width:30ch}
 .muted{color:var(--muted)}
 .display,h1,.h1,h2,.h2,h3{text-wrap:balance}

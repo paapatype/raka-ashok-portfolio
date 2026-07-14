@@ -76,10 +76,13 @@
     };
     paintIcon();
     tbtn.addEventListener("click", function () {
+      root.classList.add("theme-anim");                              // enable the slow crossfade for this switch
       var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
       root.setAttribute("data-theme", next);
       try { localStorage.setItem("raka-theme", next); } catch (e) {}
       paintIcon();
+      clearTimeout(root.__themeT);
+      root.__themeT = setTimeout(function () { root.classList.remove("theme-anim"); }, 850);
     });
     navLinks.appendChild(tbtn);
   }
