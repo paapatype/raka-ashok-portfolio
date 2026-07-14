@@ -28,7 +28,8 @@
   function idxOf(url) { for (var i = 0; i < LIST.length; i++) if (LIST[i].url === url) return i; return -1; }
 
   var widget = SC.Widget(iframe);
-  var started = false, on = false, lastIdx = -1, playing = false;
+  var started = false, on = false, lastIdx = -1, playing = false, ready = false;
+  widget.bind(SC.Widget.Events.READY, function () { ready = true; });   // must wait for READY before load()
   var samples = null, sampMax = 1, relPos = 0, relAt = 0, durMs = 0, level = REACT.minWeight, raf = 0;
   function now() { return (window.performance && performance.now) ? performance.now() : Date.now(); }
 
@@ -60,14 +61,18 @@
   function loadTrack(url) {
     url = url || pick();
     announce(url);
-    widget.load(url, {
-      auto_play: true, visual: false, hide_related: true, show_comments: false, show_teaser: false,
-      callback: function () {
-        widget.setVolume(100);
-        widget.getDuration(function (ms) { durMs = ms || 0; }); // for the reactivity position mapping
-        loadWaveform();
-      }
-    });
+    var go = function () {
+      widget.load(url, {
+        auto_play: true, visual: false, hide_related: true, show_comments: false, show_teaser: false,
+        callback: function () {
+          widget.setVolume(100);
+          widget.getDuration(function (ms) { durMs = ms || 0; }); // for the reactivity position mapping
+          loadWaveform();
+        }
+      });
+    };
+    if (ready) go();                                                                  // load only once the widget is READY
+    else { var t = setInterval(function () { if (ready) { clearInterval(t); go(); } }, 100); setTimeout(function () { clearInterval(t); }, 6000); }
   }
 
   widget.bind(SC.Widget.Events.PLAY, function () { playing = true; });

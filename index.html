@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="css/style.css?v=28">
+<link rel="stylesheet" href="css/style.css?v=29">
 </head>
 <body data-page="home">
 
@@ -152,16 +152,17 @@
 <!-- hero audio: EXACT same player structure as the Music page (which plays on iOS).
      Hidden (translated down) on desktop; on phones it slides up when sound starts -
      iOS only starts audio in a widget that is actually visible on screen. -->
-<div class="player hero-player" id="hero-player" aria-label="Music player">
+<div class="player hero-player" id="hero-player" aria-label="Now playing">
   <div class="player__inner">
+    <span class="hero-player__tag">♪ Now playing</span>
     <iframe id="hero-sc" allow="autoplay" frameborder="no" title="SoundCloud player"
-      src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Frakaashok&auto_play=false&visual=false&hide_related=true&show_comments=false&show_teaser=false&color=%230a0a0a"></iframe>
+      src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Frakaashok&auto_play=false&visual=false&hide_related=true&show_comments=false&show_teaser=false&color=%23d6453b"></iframe>
   </div>
 </div>
 <script src="js/music.js"></script>
 <script src="https://w.soundcloud.com/player/api.js"></script>
 <script src="js/react-map.js?v=2"></script>
-<script src="js/hero-sound.js?v=12"></script>
+<script src="js/hero-sound.js?v=13"></script>
 <script src="js/agentation-dev.js?v=1"></script><!-- dev-only (localhost); trialling agentation -->
 </body>
 </html>

@@ -549,6 +549,17 @@ body.player-open{padding-bottom:148px}
   body.player-open{padding-bottom:138px}
 }
 
+/* hero "now playing" bar - forced dark + brand-red accent (the SoundCloud iframe itself is a locked
+   cross-origin frame, so this brands the wrapper; the play/progress colour is set to the brand red). */
+.hero-player{background:#0a0a0a;backdrop-filter:none;-webkit-backdrop-filter:none;
+  border-top:2px solid #d6453b;box-shadow:0 -14px 46px rgba(0,0,0,.55)}
+.hero-player .player__inner{gap:14px}
+.hero-player__tag{flex:none;font-family:"Hubot Sans VF","Hubot SemiCond","Inter",system-ui,sans-serif;
+  font-variation-settings:"wght" 480;text-transform:uppercase;letter-spacing:.09em;font-size:.72rem;
+  color:#fff;white-space:nowrap;opacity:.85}
+.hero-player .player__inner iframe{height:104px;border-radius:8px}
+@media(max-width:768px){ .hero-player{background:#0a0a0a} .hero-player__tag{display:none} }
+
 /* dark mode: lift grayscale client logos so they read on dark bg */
 [data-theme="dark"] .belt__logo{filter:invert(1) grayscale(1) brightness(1.7) contrast(1.1)}
 
