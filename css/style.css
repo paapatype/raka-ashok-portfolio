@@ -434,7 +434,18 @@ p,.lead,figcaption,li,blockquote{text-wrap:pretty}
 .footer__book:hover{opacity:.6}
 .footer__book .arr{transition:transform .3s var(--ease)}
 .footer__book:hover .arr{transform:translateX(5px)}
-@media(max-width:600px){.footer__top{gap:18px}.footer__lockup{width:min(100%,340px)}}
+
+/* homepage section heads in the display typeface (matching the hero tagline) */
+.sechead h2,.sechead .link-line{font-family:"Hubot Sans VF","Hubot SemiCond","Inter",system-ui,sans-serif;font-variation-settings:"wght" 460}
+.sechead h2{letter-spacing:-.01em}
+
+/* phone: centre the whole footer (logo, book link, social links) */
+@media(max-width:600px){
+  .footer__top{flex-direction:column;align-items:center;text-align:center;gap:22px}
+  .footer__lockup{width:min(100%,320px)}
+  .footer__bottom{flex-direction:column;align-items:center;text-align:center;gap:16px}
+  .footer__links{justify-content:center}
+}
 
 /* ---------- scroll reveal ---------- */
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
